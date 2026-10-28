@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================
   const splashScreen = document.getElementById('siteSplashScreen');
   if (splashScreen) {
-    document.body.classList.add('splash-screen-active');
+    document.body.classList.add('splash-screen-active', 'anim-waiting-splash');
     const progressBar = document.getElementById('splashProgressBar');
     const progressVal = document.getElementById('splashProgressVal');
 
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           splashScreen.classList.add('fade-out');
           document.body.classList.remove('splash-screen-active');
+          window.dispatchEvent(new CustomEvent('siteSplashComplete'));
 
           setTimeout(() => {
             splashScreen.style.display = 'none';
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     requestAnimationFrame(updateProgress);
+  } else {
+    document.body.classList.add('anim-waiting-splash');
+    requestAnimationFrame(() => {
+      window.dispatchEvent(new CustomEvent('siteSplashComplete'));
+    });
   }
 
   // Navigation & ScrollSpy
@@ -341,13 +347,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updatePrices() {
     const priceElements = document.querySelectorAll('.price-dynamic');
-    priceElements.forEach(el => {
+    priceElements.forEach((el, idx) => {
       const citizenPrice = el.getAttribute('data-citizen');
       const nonCitizenPrice = el.getAttribute('data-non-citizen');
 
       const newPrice = currentTier === 'citizen' ? citizenPrice : nonCitizenPrice;
       if (newPrice) {
+        el.classList.remove('price-flip-anim');
+        void el.offsetWidth;
+        el.style.animationDelay = `${(idx % 6) * 35}ms`;
         el.textContent = newPrice;
+        el.classList.add('price-flip-anim');
         if (newPrice.toLowerCase() === 'f.o.c' || newPrice.toLowerCase() === 'free') {
           el.classList.add('free');
         } else {
@@ -372,9 +382,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardLoc = card.getAttribute('data-location-id');
         if (targetLoc === 'all' || cardLoc === targetLoc) {
           card.style.display = 'block';
+          // Trigger fresh transition animation when card becomes visible
+          const innerAnims = card.querySelectorAll('.anim-item, .anim-heading-words');
+          card.classList.remove('anim-inview', 'anim-out-above');
+          card.classList.add('anim-out-below');
+          card._animState = 'out-below';
+          innerAnims.forEach(child => {
+            child.classList.remove('anim-inview', 'anim-out-above');
+            child.classList.add('anim-out-below');
+            child._animState = 'out-below';
+          });
         } else {
           card.style.display = 'none';
         }
+      });
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new CustomEvent('refreshScrollAnimations'));
+        });
       });
     });
   });
@@ -532,7 +558,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const grandTotal = pricePerPax * pax;
 
     if (costPerPaxDisp) costPerPaxDisp.textContent = `RM ${pricePerPax.toFixed(2)}`;
-    if (totalCostDisp) totalCostDisp.textContent = `RM ${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (totalCostDisp) {
+      totalCostDisp.textContent = `RM ${grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      totalCostDisp.classList.remove('calc-pulse-anim');
+      void totalCostDisp.offsetWidth;
+      totalCostDisp.classList.add('calc-pulse-anim');
+    }
 
     // Update WhatsApp prefilled link
     if (whatsappQuoteBtn) {
@@ -2285,4 +2316,472 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ==========================================================================
+     UNIVERSAL BIDIRECTIONAL SCROLL, PAGE-LOAD, TEXT, TRANSITION & CARD ENGINE
+     Works on Page Load, Scroll Down, and Reverses on Scroll Back Up
+     ========================================================================== */
+  const trackedAnimElements = [];
+  const trackedElementSet = new Set();
+
+  // 1. Inject Scroll Progress Bar into Sticky Header & Stagger Nav Links
+  const siteHeaderEl = document.getElementById('mainHeader');
+  let headerProgressBar = null;
+  if (siteHeaderEl) {
+    const progressTrack = document.createElement('div');
+    progressTrack.className = 'scroll-progress-track';
+    headerProgressBar = document.createElement('div');
+    headerProgressBar.className = 'scroll-progress-bar';
+    progressTrack.appendChild(headerProgressBar);
+    siteHeaderEl.appendChild(progressTrack);
+
+    const headerNavLinks = siteHeaderEl.querySelectorAll('.nav-menu .nav-link');
+    headerNavLinks.forEach((link, idx) => {
+      link.style.setProperty('--nav-i', idx);
+    });
+  }
+
+  // 2. Word-by-Word 3D Text Animation Splitter (Preserves Nested Spans & Icons)
+  function splitHeadingIntoWords(headingEl) {
+    if (!headingEl || headingEl.classList.contains('anim-heading-words')) return;
+    if (headingEl.closest('#galleryRunway, .titiwangsa-gallery-wrapper, .ripplebay-gallery-wrapper')) return;
+
+    const wordElements = [];
+
+    function processNode(node) {
+      const childNodes = Array.from(node.childNodes);
+      childNodes.forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const text = child.textContent;
+          if (!text || !text.trim()) return;
+          const parts = text.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+            } else {
+              const mask = document.createElement('span');
+              mask.className = 'anim-word-mask';
+              const wordSpan = document.createElement('span');
+              wordSpan.className = 'anim-word';
+              wordSpan.textContent = part;
+              mask.appendChild(wordSpan);
+              frag.appendChild(mask);
+              wordElements.push(wordSpan);
+            }
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          const tag = child.tagName.toLowerCase();
+          if (tag === 'br') return;
+          if (tag === 'i' || child.classList.contains('fa-solid') || child.classList.contains('fa-brands') || child.classList.contains('fa-regular')) {
+            child.classList.add('anim-word-icon');
+            wordElements.push(child);
+          } else {
+            processNode(child);
+          }
+        }
+      });
+    }
+
+    processNode(headingEl);
+
+    const total = wordElements.length;
+    if (total === 0) return;
+
+    wordElements.forEach((wEl, idx) => {
+      wEl.style.setProperty('--word-i', idx);
+      wEl.style.setProperty('--word-rev', Math.max(0, total - 1 - idx));
+    });
+
+    headingEl.style.setProperty('--word-total', total);
+    headingEl.classList.add('anim-heading-words', 'anim-out-below');
+    headingEl._animState = 'out-below';
+
+    if (!trackedElementSet.has(headingEl)) {
+      trackedElementSet.add(headingEl);
+      trackedAnimElements.push(headingEl);
+    }
+  }
+
+  // Register Headings Across All 3 Pages for Word-by-Word 3D Text Reveal
+  const headingSelectors = [
+    '.home-panorama-title',
+    '.hero-title',
+    '.hero-corp-heading',
+    '.expansion-title',
+    '.section-title',
+    '.location-card-title',
+    '.tb-hero-content h3',
+    '.tb-games-head h3',
+    '.crystal-dome-title',
+    '.tb-feature-title',
+    '.nightview-feature-title',
+    '.boatcruise-feature-title',
+    '.buggyshuttle-feature-title',
+    '.pricing-main-title',
+    '.ttw-challenge-section-head h3',
+    '.calc-inputs-side h3',
+    '.instagram-feed-title',
+    '.branch-map-card-title',
+    '.branch-switch-strip h3'
+  ];
+
+  document.querySelectorAll(headingSelectors.join(', ')).forEach(hEl => {
+    splitHeadingIntoWords(hEl);
+  });
+
+  // 3. Helper Functions to Register Elements for Transition & Card Animations
+  function registerAnimElement(el, animType, staggerIdx = 0, totalSiblings = 1, baseDelayMs = 0) {
+    if (!el || trackedElementSet.has(el)) return;
+    if (el.classList.contains('anim-heading-words')) return;
+    // Never touch elements controlled by the 3D WebGL / Canvas / Paddle galleries or Roadmap kayak
+    if (el.closest('#galleryRunway, #paddleWrapper, #quoteContainer, .titiwangsa-gallery-wrapper, .ripplebay-gallery-wrapper, #roadmapKayak, .kayak-station-wrap, #siteSplashScreen')) {
+      return;
+    }
+
+    el.classList.add('anim-item', 'anim-out-below');
+    el.setAttribute('data-anim', animType);
+    el.style.setProperty('--stagger-i', staggerIdx);
+    el.style.setProperty('--stagger-rev', Math.max(0, totalSiblings - 1 - staggerIdx));
+    if (baseDelayMs > 0) {
+      el.style.setProperty('--base-delay', `${baseDelayMs}ms`);
+    }
+    el._animState = 'out-below';
+
+    trackedElementSet.add(el);
+    trackedAnimElements.push(el);
+  }
+
+  function registerStaggerGroup(containerSelector, itemSelector, animType, addTilt = false, maxStaggerMod = 8) {
+    document.querySelectorAll(containerSelector).forEach(container => {
+      const items = Array.from(container.querySelectorAll(itemSelector));
+      const count = items.length;
+      items.forEach((item, idx) => {
+        const modIdx = idx % maxStaggerMod;
+        const modTotal = Math.min(count, maxStaggerMod);
+        registerAnimElement(item, animType, modIdx, modTotal);
+        if (addTilt) {
+          item.classList.add('anim-tilt-card');
+        }
+      });
+    });
+  }
+
+  function registerSingles(selector, animType, addTilt = false, baseDelayMs = 0) {
+    document.querySelectorAll(selector).forEach(el => {
+      registerAnimElement(el, animType, 0, 1, baseDelayMs);
+      if (addTilt) {
+        el.classList.add('anim-tilt-card');
+      }
+    });
+  }
+
+  // --- A. Register Badges & Pill Tags (badge-pop) ---
+  registerSingles([
+    '.hero-member-badge',
+    '.expansion-badge',
+    '.location-brand-badge',
+    '.tb-hero-content > .location-badge-pill',
+    '.gallery-lead-section .badge-pill',
+    '.section-head .location-badge-pill',
+    '.watersports-area-header .location-badge-pill',
+    '.branch-map-header .location-badge-pill',
+    '.branch-switch-strip .location-badge-pill',
+    '.instagram-badge-pill',
+    '.crystal-header-badges',
+    '.tb-feature-badge',
+    '.nightview-feature-badge',
+    '.boatcruise-feature-badge',
+    '.buggyshuttle-feature-badge',
+    '.ttw-challenge-section-head .location-badge-pill',
+    '.citizen-toggle-control',
+    '.status-live-badge'
+  ].join(', '), 'badge-pop');
+
+  registerSingles('.hero-floating-stat', 'badge-pop', false, 180);
+
+  registerStaggerGroup('.location-tab-controls', '.loc-tab-btn', 'badge-pop', false, 6);
+  registerStaggerGroup('.occasion-pills-list', '.occasion-pill', 'badge-pop', false, 6);
+  registerStaggerGroup('.watersports-zone-badges', '.zone-pill', 'badge-pop', false, 6);
+  registerStaggerGroup('.ttw-perks-badges', '.ttw-perk-badge', 'badge-pop', false, 6);
+  registerStaggerGroup('.tb-extra-tags', '.tb-extra-tag', 'badge-pop', false, 6);
+  registerStaggerGroup('.ttw-skill-tags-row', '.ttw-skill-tag', 'badge-pop', false, 6);
+
+  // --- B. Register Giant Kinetic Lines in Gallery Lead-in ---
+  registerStaggerGroup('.gallery-lead-title', '.gallery-lead-line', 'kinetic-line', false, 4);
+
+  // --- C. Register Subtitles, Descriptions & Copy (fade-up) ---
+  registerSingles([
+    '.home-panorama-subtitle',
+    '.branch-panorama-breadcrumb',
+    '.hero-desc',
+    '.hero-corp-body > p',
+    '.expansion-desc',
+    '.section-subtitle',
+    '.location-card-tagline',
+    '.tb-hero-content > p',
+    '.tb-games-head > p',
+    '.gallery-lead-subtitle',
+    '.gallery-scroll-cue',
+    '.crystal-dome-subtitle',
+    '.crystal-slots-alert',
+    '.tb-feature-desc',
+    '.nightview-feature-desc',
+    '.boatcruise-feature-desc',
+    '.buggyshuttle-feature-desc',
+    '.pricing-title-wrap > p',
+    '.ttw-challenge-section-head > p',
+    '.calc-inputs-side > p',
+    '.instagram-feed-desc',
+    '.instagram-reels-hint',
+    '.branch-map-card-subtitle',
+    '.branch-switch-strip p',
+    '.footer-bottom-bar'
+  ].join(', '), 'fade-up', false, 60);
+
+  // --- D. Register 3D Cards in Grids (card-3d + Interactive 3D Hover Tilt) ---
+  registerStaggerGroup('.expansion-locations-grid', '.expansion-loc-box', 'card-3d', true, 3);
+  registerStaggerGroup('.tb-games-grid', '.game-card', 'card-3d', true, 3);
+  registerStaggerGroup('.tb-extras-grid', '.tb-extra-card', 'card-3d', true, 2);
+  registerStaggerGroup('.safety-grid', '.safety-card', 'card-3d', true, 4);
+  registerStaggerGroup('.rides-cards-grid', '.ride-item-card', 'card-3d', true, 4);
+  registerStaggerGroup('.ttw-package-deck', '.ttw-pkg-card', 'card-3d', true, 3);
+  registerStaggerGroup('.ttw-challenge-grid', '.ttw-challenge-card', 'card-3d', true, 3);
+  registerStaggerGroup('.instagram-reels-track', '.instagram-reel-card', 'card-3d', true, 5);
+  registerStaggerGroup('.footer-top-grid', ':scope > div', 'fade-up', false, 4);
+
+  // --- E. Register Directional Split-Left & Split-Right Columns & Cards ---
+  registerSingles([
+    '.hero-corp-left',
+    '.roadmap-item.roadmap-left .roadmap-card',
+    '.locations-contact-grid .location-contact-card:nth-child(odd)',
+    '.schedule-grid .schedule-col-card:nth-child(odd)',
+    '.ttw-addons-wrap .ttw-addons-card:nth-child(odd)',
+    '.branch-map-info-card'
+  ].join(', '), 'split-left', true);
+
+  registerSingles([
+    '.hero-visual-card',
+    '.hero-corp-img-card',
+    '.location-hero-visual',
+    '.branch-hero-visual-desktop',
+    '.roadmap-item.roadmap-right .roadmap-card',
+    '.locations-contact-grid .location-contact-card:nth-child(even)',
+    '.schedule-grid .schedule-col-card:nth-child(even)',
+    '.ttw-addons-wrap .ttw-addons-card:nth-child(even)',
+    '.calc-summary-card',
+    '.branch-map-frame-card'
+  ].join(', '), 'split-right', true);
+
+  // --- F. Register Collage Photo Grids (collage-pop) ---
+  registerStaggerGroup('.tb-collage-grid-4', '.tb-collage-item', 'collage-pop', false, 4);
+  registerStaggerGroup('.crystal-collage-grid', '.crystal-collage-item', 'collage-pop', false, 3);
+  registerStaggerGroup('.tb-collage-grid', '.tb-collage-item', 'collage-pop', false, 3);
+  registerStaggerGroup('.nightview-collage-grid', '.nightview-collage-item', 'collage-pop', false, 3);
+  registerStaggerGroup('.boatcruise-collage-grid', '.boatcruise-collage-item', 'collage-pop', false, 3);
+  registerStaggerGroup('.buggyshuttle-collage-grid', '.buggyshuttle-collage-item', 'collage-pop', false, 3);
+
+  // --- G. Register Showcase Banners & Large Containers (zoom-card) ---
+  registerSingles([
+    '.location-hero-visual-mobile',
+    '.branch-hero-visual-mobile',
+    '.hero-corp-card',
+    '.status-bar-card',
+    '.expansion-banner-card',
+    '.location-showcase-card',
+    '.tb-hero-card',
+    '.table-responsive-wrapper',
+    '.crystal-dome-banner',
+    '.tb-feature-card',
+    '.nightview-feature-card',
+    '.boatcruise-feature-card',
+    '.buggyshuttle-feature-card',
+    '.tb-calculator-box',
+    '.watersports-area-card',
+    '.branch-switch-strip'
+  ].join(', '), 'zoom-card');
+
+  // --- H. Register Cascading Rows, Lists, Perks, Bento Menus & FAQs (row-cascade) ---
+  registerStaggerGroup('.hero-features-list', '.hero-feat-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.hero-corp-perks', '.hero-corp-perk-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.status-branch-indicators', '.branch-indicator', 'row-cascade', false, 3);
+  registerStaggerGroup('.location-quick-meta', '.quick-meta-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.tb-features-row', '.tb-feature-pill', 'row-cascade', false, 4);
+  registerStaggerGroup('.comparison-table tbody', 'tr', 'row-cascade', false, 10);
+  registerStaggerGroup('.faq-accordion', '.faq-item', 'row-cascade', false, 6);
+  registerStaggerGroup('.contact-info-list', '.contact-info-row', 'row-cascade', false, 6);
+  registerStaggerGroup('.hours-table', 'tr', 'row-cascade', false, 6);
+  registerStaggerGroup('.schedule-col-card ul', 'li', 'row-cascade', false, 6);
+  registerStaggerGroup('.crystal-meta-box', '.crystal-meta-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.tb-feature-perks', '.tb-perk-row', 'row-cascade', false, 4);
+  registerStaggerGroup('.nightview-feature-perks', '.nightview-perk-row', 'row-cascade', false, 4);
+  registerStaggerGroup('.boatcruise-feature-perks', '.boatcruise-perk-row', 'row-cascade', false, 4);
+  registerStaggerGroup('.buggyshuttle-feature-perks', '.buggyshuttle-perk-row', 'row-cascade', false, 4);
+  registerStaggerGroup('.ttw-tb-stats-strip', '.ttw-tb-stat-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.ttw-catering-deck', '.ttw-menu-bento', 'row-cascade', false, 4);
+  registerStaggerGroup('.ttw-drink-addon-row', '.ttw-drink-item', 'row-cascade', false, 4);
+  registerStaggerGroup('.ttw-accolades-grid', '.ttw-accolade-card', 'row-cascade', false, 5);
+  registerStaggerGroup('.calc-inputs-side', '.calc-control-group', 'row-cascade', false, 5);
+  registerStaggerGroup('.branch-map-details-list', '.branch-map-detail-item', 'row-cascade', false, 5);
+  registerSingles('.ttw-buffet-vip-card, .ttw-corporate-perks-box', 'row-cascade');
+
+  // --- I. Register CTA Button Groups (btn-pop) ---
+  registerStaggerGroup('.hero-cta-group', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.location-card-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.tb-hero-card-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.contact-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.branch-hero-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.crystal-cta-group', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.tb-feature-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.nightview-feature-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.boatcruise-feature-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.buggyshuttle-feature-actions', '.btn', 'btn-pop', false, 4);
+  registerStaggerGroup('.branch-map-actions', '.btn', 'btn-pop', false, 4);
+  registerSingles('.btn-instagram-follow, .watersports-view-full-btn', 'btn-pop');
+
+  // 4. Interactive 3D Hover Tilt & Cursor Glow on Cards (Desktop Pointer Devices)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.anim-tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        if (!card.classList.contains('anim-inview')) return;
+        const rect = card.getBoundingClientRect();
+        const relX = e.clientX - rect.left;
+        const relY = e.clientY - rect.top;
+        const normX = (relX / rect.width) - 0.5;
+        const normY = (relY / rect.height) - 0.5;
+
+        const tiltX = (-normY * 7).toFixed(2);
+        const tiltY = (normX * 7).toFixed(2);
+
+        card.style.setProperty('--tilt-x', `${tiltX}deg`);
+        card.style.setProperty('--tilt-y', `${tiltY}deg`);
+        card.style.setProperty('--glow-x', `${relX.toFixed(0)}px`);
+        card.style.setProperty('--glow-y', `${relY.toFixed(0)}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+  }
+
+  // 5. Bidirectional Scroll Evaluator (Scroll Down Reveal + Scroll Up Reverse)
+  const panoVideos = document.querySelectorAll('.home-panorama-video, .branch-panorama-video');
+  const panoContents = document.querySelectorAll('.home-panorama-content, .branch-panorama-breadcrumb');
+  let animRafPending = false;
+
+  function setElementAnimState(el, nextState) {
+    if (el._animState === nextState) return;
+    el._animState = nextState;
+    el.classList.remove('anim-inview', 'anim-out-below', 'anim-out-above');
+    el.classList.add(`anim-${nextState}`);
+  }
+
+  function evaluateScrollAnimations() {
+    animRafPending = false;
+    const winH = window.innerHeight;
+    const scrollY = window.scrollY;
+    const docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    const maxScroll = Math.max(1, docH - winH);
+
+    // Update top header scroll progress bar (grows on scroll down, reverses on scroll up)
+    if (headerProgressBar) {
+      const pct = Math.min(100, Math.max(0, (scrollY / maxScroll) * 100));
+      headerProgressBar.style.width = `${pct.toFixed(2)}%`;
+    }
+
+    // Update Panorama Hero Scroll Parallax (smoothly reverses when scrolling back up)
+    if (scrollY < winH * 1.2) {
+      const panoRatio = Math.min(1, Math.max(0, scrollY / (winH * 0.85)));
+      const panoScale = (1 + panoRatio * 0.09).toFixed(4);
+      const panoY = (scrollY * 0.22).toFixed(1);
+      panoVideos.forEach(v => {
+        v.style.setProperty('--pano-scale', panoScale);
+        v.style.setProperty('--pano-y', `${panoY}px`);
+      });
+      panoContents.forEach(c => {
+        c.style.transform = `translate3d(0, ${(-scrollY * 0.16).toFixed(1)}px, 0)`;
+      });
+    }
+
+    const atPageTop = scrollY <= 36;
+    const atPageBottom = (scrollY + winH) >= (docH - 40);
+
+    // Self-stabilizing hysteresis thresholds:
+    // Entering from bottom: 88% of viewport height
+    // Reversing back out to bottom when scrolling up: 91% of viewport height
+    // Exiting out to top when scrolling down: 5% of viewport height
+    // Re-entering from top when scrolling back up: 9% of viewport height
+    const enterFromBottom = winH * 0.88;
+    const reverseToBottom = winH * 0.91;
+    const exitToTop = winH * 0.05;
+    const enterFromTop = winH * 0.09;
+
+    for (let i = 0; i < trackedAnimElements.length; i++) {
+      const el = trackedAnimElements[i];
+      const rect = el.getBoundingClientRect();
+
+      // Skip elements currently hidden via display:none (e.g., responsive mobile/desktop duplicates or filtered tabs)
+      if (rect.width === 0 && rect.height === 0) continue;
+
+      const prevState = el._animState || 'out-below';
+      let nextState = prevState;
+
+      if (prevState === 'inview') {
+        if (!atPageTop && rect.top > reverseToBottom && !atPageBottom) {
+          // User scrolled back UP: element moved down past bottom threshold -> reverse animation back out!
+          nextState = 'out-below';
+        } else if (!atPageTop && rect.bottom < exitToTop) {
+          // User scrolled DOWN past element: element moved above top threshold -> animate out upward!
+          nextState = 'out-above';
+        }
+      } else if (prevState === 'out-below') {
+        if ((rect.top < enterFromBottom || (atPageBottom && rect.top < winH)) && rect.bottom > exitToTop) {
+          // Element entered viewport from bottom -> play entrance animation!
+          nextState = 'inview';
+        } else if (!atPageTop && rect.bottom <= exitToTop) {
+          nextState = 'out-above';
+        }
+      } else if (prevState === 'out-above') {
+        if ((rect.bottom > enterFromTop || atPageTop) && rect.top < reverseToBottom) {
+          // User scrolled back UP: element re-entered viewport from top -> reverse/replay animation back in!
+          nextState = 'inview';
+        } else if (rect.top >= reverseToBottom) {
+          nextState = 'out-below';
+        }
+      }
+
+      if (nextState !== prevState) {
+        setElementAnimState(el, nextState);
+      }
+    }
+  }
+
+  function requestAnimTick() {
+    if (!animRafPending) {
+      animRafPending = true;
+      window.requestAnimationFrame(evaluateScrollAnimations);
+    }
+  }
+
+  window.addEventListener('scroll', requestAnimTick, { passive: true });
+  window.addEventListener('resize', requestAnimTick, { passive: true });
+  window.addEventListener('refreshScrollAnimations', evaluateScrollAnimations);
+
+  // Trigger Page-Load Entrance Sequence right when Splash Screen completes
+  let pageLoadTriggered = false;
+  function activatePageLoadAnimations() {
+    if (pageLoadTriggered) return;
+    pageLoadTriggered = true;
+    document.body.classList.remove('anim-waiting-splash');
+    document.body.classList.add('anim-page-loaded');
+    evaluateScrollAnimations();
+  }
+
+  window.addEventListener('siteSplashComplete', activatePageLoadAnimations);
+  // Fallback safety in case splash event already fired or was bypassed
+  setTimeout(activatePageLoadAnimations, 3100);
 });
