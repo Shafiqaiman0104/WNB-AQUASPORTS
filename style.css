@@ -10217,3 +10217,585 @@ body.splash-screen-active {
     transform: translateX(100%);
   }
 }
+
+/* ==========================================================================
+   GLOBAL BIDIRECTIONAL SCROLL, PAGE LOAD, TEXT, TRANSITION & CARD ANIMATIONS
+   Supports: Page Load Entrance, Scroll Down Reveal, & Scroll Up Reverse
+   ========================================================================== */
+
+/* 1. Top Scroll Progress Indicator in Sticky Header */
+.scroll-progress-track {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0284c7 0%, #0d9488 45%, #22c55e 80%, #38bdf8 100%);
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.55);
+  transform-origin: left center;
+  transition: width 0.08s linear;
+}
+
+/* 2. Page-Load Choreography (Header, Announcement Bar, Panorama Video) */
+.top-notice-bar {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.anim-waiting-splash .top-notice-bar {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+}
+
+.site-header .brand-logo-wrap,
+.site-header .nav-menu .nav-link,
+.site-header .nav-actions {
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.anim-waiting-splash .site-header .brand-logo-wrap {
+  opacity: 0;
+  transform: translate3d(-24px, -10px, 0) scale(0.94);
+}
+
+body.anim-waiting-splash .site-header .nav-menu .nav-link {
+  opacity: 0;
+  transform: translate3d(0, -16px, 0);
+}
+
+body.anim-waiting-splash .site-header .nav-actions {
+  opacity: 0;
+  transform: translate3d(24px, -10px, 0) scale(0.94);
+}
+
+body.anim-page-loaded .site-header .nav-menu .nav-link {
+  transition-delay: calc(var(--nav-i, 0) * 55ms + 80ms);
+}
+
+body.anim-page-loaded .site-header .nav-actions {
+  transition-delay: 320ms;
+}
+
+/* Panorama Video & Overlay Smooth Entrance + Scroll Parallax */
+.home-panorama-video,
+.branch-panorama-video {
+  transition: transform 1.35s cubic-bezier(0.16, 1, 0.3, 1), filter 1.1s ease;
+  will-change: transform;
+}
+
+body.anim-waiting-splash .home-panorama-video,
+body.anim-waiting-splash .branch-panorama-video {
+  transform: scale(1.14);
+  filter: brightness(0.7) blur(4px);
+}
+
+body.anim-page-loaded .home-panorama-video,
+body.anim-page-loaded .branch-panorama-video {
+  transform: scale(var(--pano-scale, 1)) translate3d(0, var(--pano-y, 0px), 0);
+  filter: brightness(1) blur(0px);
+}
+
+/* 3. Word-by-Word 3D Text Animation System (Reversible on Scroll Up & Down) */
+.anim-heading-words {
+  perspective: 900px;
+}
+
+.anim-word-mask {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: bottom;
+  perspective: 700px;
+}
+
+.anim-word,
+.anim-word-icon {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  transform-origin: 50% 100%;
+  transition:
+    transform 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.56s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.56s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Preserve Gradient Text inside .highlight-blue & .hero-corp-heading span */
+.hero-title .highlight-blue {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.hero-title .highlight-blue .anim-word {
+  background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #2563eb 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientFlow 6s ease infinite;
+}
+
+.hero-corp-heading span .anim-word {
+  color: var(--brand-cyan);
+}
+
+@keyframes textGradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Text State: Below Viewport or Reversed Out When Scrolling Back Up */
+body.anim-waiting-splash .anim-heading-words .anim-word,
+body.anim-waiting-splash .anim-heading-words .anim-word-icon,
+.anim-heading-words.anim-out-below .anim-word,
+.anim-heading-words.anim-out-below .anim-word-icon {
+  opacity: 0;
+  transform: translate3d(0, 78%, -18px) rotateX(-38deg) rotateZ(3deg) scale(0.92);
+  filter: blur(5px);
+  transition-duration: 0.52s;
+  transition-delay: calc(var(--word-rev, 0) * 20ms);
+}
+
+/* Text State: Above Viewport When Scrolled Past Downward */
+.anim-heading-words.anim-out-above .anim-word,
+.anim-heading-words.anim-out-above .anim-word-icon {
+  opacity: 0;
+  transform: translate3d(0, -72%, -14px) rotateX(32deg) rotateZ(-2deg) scale(0.94);
+  filter: blur(4px);
+  transition-duration: 0.48s;
+  transition-delay: calc(var(--word-i, 0) * 18ms);
+}
+
+/* Text State: Active In-View (Entering from Bottom or Top) */
+body.anim-page-loaded .anim-heading-words.anim-inview .anim-word,
+body.anim-page-loaded .anim-heading-words.anim-inview .anim-word-icon {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--word-i, 0) * 38ms + var(--base-delay, 0ms));
+}
+
+/* 4. Universal Bidirectional Scroll Transition & Card Animation Items */
+.anim-item {
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Default / Fade-Up Variant */
+body.anim-waiting-splash .anim-item[data-anim="fade-up"],
+.anim-item[data-anim="fade-up"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(0, 42px, 0) scale(0.96);
+  filter: blur(3px);
+  transition-duration: 0.54s;
+  transition-delay: calc(var(--stagger-rev, 0) * 40ms);
+}
+
+.anim-item[data-anim="fade-up"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(0, -36px, 0) scale(0.97);
+  filter: blur(3px);
+  transition-duration: 0.5s;
+  transition-delay: calc(var(--stagger-i, 0) * 35ms);
+}
+
+body.anim-page-loaded .anim-item[data-anim="fade-up"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 75ms + var(--base-delay, 0ms));
+}
+
+/* 3D Card Entrance & Reverse Variant (card-3d) */
+body.anim-waiting-splash .anim-item[data-anim="card-3d"],
+.anim-item[data-anim="card-3d"].anim-out-below {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(0, 56px, -30px) rotateX(14deg) scale(0.9);
+  filter: blur(3px);
+  transition-duration: 0.58s;
+  transition-delay: calc(var(--stagger-rev, 0) * 45ms);
+}
+
+.anim-item[data-anim="card-3d"].anim-out-above {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(0, -48px, -24px) rotateX(-12deg) scale(0.92);
+  filter: blur(3px);
+  transition-duration: 0.52s;
+  transition-delay: calc(var(--stagger-i, 0) * 40ms);
+}
+
+body.anim-page-loaded .anim-item[data-anim="card-3d"].anim-inview {
+  opacity: 1;
+  transform: perspective(1100px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 85ms + var(--base-delay, 0ms));
+}
+
+body.anim-page-loaded .ttw-pkg-card.featured.anim-item[data-anim="card-3d"].anim-inview {
+  transform: perspective(1100px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) scale(1.02);
+}
+
+/* Split-Left Directional Transition Variant */
+body.anim-waiting-splash .anim-item[data-anim="split-left"],
+.anim-item[data-anim="split-left"].anim-out-below {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(-54px, 36px, 0) rotateY(9deg) scale(0.94);
+  filter: blur(3px);
+  transition-duration: 0.58s;
+  transition-delay: calc(var(--stagger-rev, 0) * 45ms);
+}
+
+.anim-item[data-anim="split-left"].anim-out-above {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(-44px, -34px, 0) rotateY(7deg) scale(0.95);
+  filter: blur(3px);
+  transition-duration: 0.52s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="split-left"].anim-inview {
+  opacity: 1;
+  transform: perspective(1100px) translate3d(0, 0, 0) rotateY(0deg) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 80ms + var(--base-delay, 0ms));
+}
+
+/* Split-Right Directional Transition Variant */
+body.anim-waiting-splash .anim-item[data-anim="split-right"],
+.anim-item[data-anim="split-right"].anim-out-below {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(54px, 36px, 0) rotateY(-9deg) scale(0.94);
+  filter: blur(3px);
+  transition-duration: 0.58s;
+  transition-delay: calc(var(--stagger-rev, 0) * 45ms);
+}
+
+.anim-item[data-anim="split-right"].anim-out-above {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(44px, -34px, 0) rotateY(-7deg) scale(0.95);
+  filter: blur(3px);
+  transition-duration: 0.52s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="split-right"].anim-inview {
+  opacity: 1;
+  transform: perspective(1100px) translate3d(0, 0, 0) rotateY(0deg) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 80ms + var(--base-delay, 0ms));
+}
+
+/* Zoom-Card Showcase Transition Variant */
+body.anim-waiting-splash .anim-item[data-anim="zoom-card"],
+.anim-item[data-anim="zoom-card"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(0, 44px, 0) scale(0.94);
+  transition-duration: 0.6s;
+}
+
+.anim-item[data-anim="zoom-card"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(0, -38px, 0) scale(0.95);
+  transition-duration: 0.52s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="zoom-card"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: calc(var(--stagger-i, 0) * 70ms + var(--base-delay, 0ms));
+}
+
+/* Collage Photo Pop & Tag Reveal Variant */
+body.anim-waiting-splash .anim-item[data-anim="collage-pop"],
+.anim-item[data-anim="collage-pop"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) scale(0.86) rotateZ(-1.5deg);
+  filter: blur(4px);
+  transition-duration: 0.55s;
+  transition-delay: calc(var(--stagger-rev, 0) * 50ms);
+}
+
+.anim-item[data-anim="collage-pop"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(0, -30px, 0) scale(0.88) rotateZ(1deg);
+  filter: blur(3px);
+  transition-duration: 0.48s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="collage-pop"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotateZ(0deg);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 95ms + var(--base-delay, 0ms));
+}
+
+/* Animate Collage Tags Inside Collage Items */
+.anim-item[data-anim="collage-pop"] .tb-collage-tag,
+.anim-item[data-anim="collage-pop"] .crystal-collage-tag,
+.anim-item[data-anim="collage-pop"] .nightview-collage-tag,
+.anim-item[data-anim="collage-pop"] .boatcruise-collage-tag,
+.anim-item[data-anim="collage-pop"] .buggyshuttle-collage-tag {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.anim-item[data-anim="collage-pop"].anim-out-below .tb-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-below .crystal-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-below .nightview-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-below .boatcruise-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-below .buggyshuttle-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-above .tb-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-above .crystal-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-above .nightview-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-above .boatcruise-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-out-above .buggyshuttle-collage-tag {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(0.9);
+}
+
+.anim-item[data-anim="collage-pop"].anim-inview .tb-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-inview .crystal-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-inview .nightview-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-inview .boatcruise-collage-tag,
+.anim-item[data-anim="collage-pop"].anim-inview .buggyshuttle-collage-tag {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: calc(var(--stagger-i, 0) * 95ms + 180ms);
+}
+
+/* Badge & Pill Spring Pop Variant */
+body.anim-waiting-splash .anim-item[data-anim="badge-pop"],
+.anim-item[data-anim="badge-pop"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0) scale(0.78);
+  transition-duration: 0.45s;
+  transition-delay: calc(var(--stagger-rev, 0) * 30ms);
+}
+
+.anim-item[data-anim="badge-pop"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0) scale(0.82);
+  transition-duration: 0.42s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="badge-pop"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--stagger-i, 0) * 55ms + var(--base-delay, 0ms));
+}
+
+/* Row Cascade Variant (Tables, Perks, Meta Lists, FAQ Items, Bento Menus) */
+body.anim-waiting-splash .anim-item[data-anim="row-cascade"],
+.anim-item[data-anim="row-cascade"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(-24px, 24px, 0) scale(0.96);
+  transition-duration: 0.48s;
+  transition-delay: calc(var(--stagger-rev, 0) * 30ms);
+}
+
+.anim-item[data-anim="row-cascade"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(18px, -22px, 0) scale(0.97);
+  transition-duration: 0.44s;
+  transition-delay: calc(var(--stagger-i, 0) * 25ms);
+}
+
+body.anim-page-loaded .anim-item[data-anim="row-cascade"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: calc(var(--stagger-i, 0) * 60ms + var(--base-delay, 0ms));
+}
+
+/* Button Pop Variant */
+body.anim-waiting-splash .anim-item[data-anim="btn-pop"],
+.anim-item[data-anim="btn-pop"].anim-out-below {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.88);
+  transition-duration: 0.46s;
+  transition-delay: calc(var(--stagger-rev, 0) * 35ms);
+}
+
+.anim-item[data-anim="btn-pop"].anim-out-above {
+  opacity: 0;
+  transform: translate3d(0, -20px, 0) scale(0.9);
+  transition-duration: 0.42s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="btn-pop"].anim-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: calc(var(--stagger-i, 0) * 65ms + var(--base-delay, 0ms));
+}
+
+/* Giant Kinetic Line Variant (Gallery Lead Title) */
+body.anim-waiting-splash .anim-item[data-anim="kinetic-line"],
+.anim-item[data-anim="kinetic-line"].anim-out-below {
+  opacity: 0;
+  transform: perspective(900px) translate3d(0, 64px, -40px) rotateX(-35deg) scale(0.9);
+  filter: blur(5px);
+  transition-duration: 0.65s;
+  transition-delay: calc(var(--stagger-rev, 0) * 55ms);
+}
+
+.anim-item[data-anim="kinetic-line"].anim-out-above {
+  opacity: 0;
+  transform: perspective(900px) translate3d(0, -52px, -30px) rotateX(28deg) scale(0.92);
+  filter: blur(4px);
+  transition-duration: 0.55s;
+}
+
+body.anim-page-loaded .anim-item[data-anim="kinetic-line"].anim-inview {
+  opacity: 1;
+  transform: perspective(900px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+  filter: blur(0px);
+  transition-delay: calc(var(--stagger-i, 0) * 110ms + var(--base-delay, 0ms));
+}
+
+/* 5. Interactive Hover Lift & 3D Tilt Preservation When In-View */
+body.anim-page-loaded .btn.anim-item.anim-inview:hover {
+  transform: translate3d(0, -3px, 0) scale(1.03);
+  transition-delay: 0ms !important;
+  transition-duration: 0.22s !important;
+}
+
+body.anim-page-loaded .anim-tilt-card.anim-item.anim-inview:hover {
+  transform: perspective(1000px) translate3d(0, -7px, 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.015);
+  transition-delay: 0ms !important;
+  transition-duration: 0.18s !important;
+}
+
+body.anim-page-loaded .ttw-pkg-card.featured.anim-tilt-card.anim-item.anim-inview:hover {
+  transform: perspective(1000px) translate3d(0, -8px, 0) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.035);
+  transition-delay: 0ms !important;
+  transition-duration: 0.18s !important;
+}
+
+/* Subtle Spotlight Sheen on 3D Tilt Cards */
+.anim-tilt-card {
+  position: relative;
+}
+
+.anim-tilt-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(56, 189, 248, 0.12),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.anim-tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* 6. Continuous Floating Watercraft & Aquatic Icon Animations */
+@keyframes aquaFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) rotate(1.2deg);
+  }
+}
+
+@keyframes aquaFloatKayakRot {
+  0%, 100% {
+    transform: rotate(-60deg) scale(0.95) translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: rotate(-58.5deg) scale(0.95) translate3d(0, -6px, 0);
+  }
+}
+
+.ride-item-card.anim-inview:not(:hover) .ride-item-img:not(.img-rotate-kayak),
+.game-card.anim-inview:not(:hover) .challenge-3d-img,
+.ttw-challenge-card.anim-inview:not(:hover) .ttw-challenge-badge-3d img {
+  animation: aquaFloat 3.6s ease-in-out infinite;
+}
+
+.ride-item-card.anim-inview:not(:hover) .ride-item-img.img-rotate-kayak {
+  animation: aquaFloatKayakRot 3.6s ease-in-out infinite;
+}
+
+/* Staggered wave phase for floating boats in grids */
+.ride-item-card:nth-child(2n) .ride-item-img,
+.game-card:nth-child(2n) .challenge-3d-img,
+.ttw-challenge-card:nth-child(2n) .ttw-challenge-badge-3d img {
+  animation-delay: -1.4s !important;
+}
+
+.ride-item-card:nth-child(3n) .ride-item-img,
+.game-card:nth-child(3n) .challenge-3d-img,
+.ttw-challenge-card:nth-child(3n) .ttw-challenge-badge-3d img {
+  animation-delay: -2.5s !important;
+}
+
+/* 7. Dynamic Price Flip & Calculator Pulse Transitions */
+@keyframes priceFlipPop {
+  0% {
+    opacity: 0.25;
+    transform: perspective(400px) rotateX(-65deg) scale(0.88);
+  }
+  60% {
+    opacity: 1;
+    transform: perspective(400px) rotateX(10deg) scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0deg) scale(1);
+  }
+}
+
+.price-dynamic {
+  display: inline-block;
+}
+
+.price-dynamic.price-flip-anim {
+  animation: priceFlipPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes calcValuePulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.calc-pulse-anim {
+  animation: calcValuePulse 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .anim-item,
+  .anim-word,
+  .anim-word-icon {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
