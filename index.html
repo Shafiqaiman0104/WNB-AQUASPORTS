@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White & Black Aquasports | Premier Water Sports Recreation in Kuala Lumpur</title>
+  <meta name="description"
+    content="Experience thrilling water recreation at White & Black Aquasports. Enjoy paddle boats, kayaks, electric cruise boats, water bikes and corporate team building at Tasik Titiwangsa and Ripplebay Taman Botani. Expanding in 2027 to Putrajaya, Tasik Ampang Hilir & Tasik Impian Nilai.">
+  <meta name="keywords"
+    content="White and Black Aquasports, Tasik Titiwangsa, Ripplebay Taman Botani, kayak KL, paddle boat, team building water games, Kuala Lumpur water sports">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="image/wnbAquasportsLogo.png">
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans & Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Preload Roadmap Kayak Animation Frames (Loaded Once, Zero Flicker) -->
+  <link rel="preload" as="image" href="image/kayakRoadmap1.png">
+  <link rel="preload" as="image" href="image/kayakRoadmap2.png">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=52">
+</head>
+
+<body class="splash-screen-active">
+
+  <!-- Splash Screen Preloader (Shown for ~3s on page load/reload) -->
+  <div class="site-splash-screen" id="siteSplashScreen" aria-label="Loading White & Black Aquasports">
+    <div class="splash-ambient-glow"></div>
+    <div class="splash-card">
+      <div class="splash-logo-box">
+        <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="splash-logo splash-logo-wide">
+      </div>
+      <h2 class="splash-desc">White &amp; Black Aquasports</h2>
+      <div class="splash-status-line">
+        <span class="splash-status-text">Loading<span
+            class="splash-dot-anim"><span>.</span><span>.</span><span>.</span></span></span>
+        <span class="splash-progress-val" id="splashProgressVal">0%</span>
+      </div>
+      <div class="splash-progress-track">
+        <div class="splash-progress-bar" id="splashProgressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Announcement Bar: 2027 Expansion Highlight -->
+  <div class="top-notice-bar" id="announcementBar">
+    <div class="top-notice-inner">
+      <span class="badge-glow"><i class="fa-solid fa-sparkles"></i> Expansion 2027</span>
+      <div class="notice-ticker-track">
+        <div class="notice-ticker-content">
+          <span class="ticker-text">
+            Exciting News! White &amp; Black Aquasports is expanding in 2027 with 3 upcoming locations:
+            <strong>Putrajaya</strong>, <strong>Tasik Ampang Hilir</strong> &amp; <strong>Tasik Impian Nilai</strong>!
+            <a href="#expansion" class="notice-link">Learn More &rarr;</a>
+          </span>
+          <span class="ticker-text ticker-clone" aria-hidden="true">
+            Exciting News! White &amp; Black Aquasports is expanding in 2027 with 3 upcoming locations:
+            <strong>Putrajaya</strong>, <strong>Tasik Ampang Hilir</strong> &amp; <strong>Tasik Impian Nilai</strong>!
+            <a href="#expansion" class="notice-link">Learn More &rarr;</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Sticky Navigation -->
+  <header class="site-header" id="mainHeader">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo-wrap" title="White & Black Aquasports">
+        <img src="image/wnbAquasportsLogo.png" alt="White &amp; Black Aquasports Logo" class="brand-logo logo-dark">
+        <img src="image/wnbAquasportsLogoWhite.png" alt="White &amp; Black Aquasports Logo"
+          class="brand-logo logo-white">
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#locations" class="nav-link">Our Branch</a>
+        <a href="#teambuilding" class="nav-link">Team Building</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#roadmap" class="nav-link">Our Journey</a>
+        <a href="#safety" class="nav-link">Safety &amp; FAQ</a>
+        <a href="#contact" class="nav-link">Contact &amp; Map</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#locations" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-ticket"></i> View Rates
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Scenic Panorama Billboard Section (Full Width Edge-to-Edge) -->
+    <section class="home-panorama-section" id="home">
+      <div class="home-panorama-card">
+        <video class="home-panorama-video" autoplay loop muted playsinline poster="image/titiwangsaPanorama.jpg">
+          <source src="image/wnbAquasportsVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="home-panorama-overlay">
+          <div class="home-panorama-content">
+            <h2 class="home-panorama-title">White &amp; Black Aquasports</h2>
+            <p class="home-panorama-subtitle">
+              Premier Lake Recreation &bull; Tasik Titiwangsa &amp; Ripplebay Taman Botani Perdana
+            </p>
+          </div>
+        </div>
+
+        <!-- Animated Wave Transition (Behind) -->
+        <div class="wave-container wave-behind">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax-waves">
+              <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(240, 249, 255, 0.7)" />
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(240, 249, 255, 0.5)" />
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(240, 249, 255, 0.3)" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Animated Wave Transition (In Front) -->
+        <div class="wave-container wave-front">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave-front"
+                d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax-waves">
+              <use xlink:href="#gentle-wave-front" x="48" y="7" fill="#f0f9ff" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Introduction Section -->
+    <section class="hero-section" id="hero-intro">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-member-badge">
+              <span class="badge-accent">Member of</span>
+              <img src="image/mfjCapitalLogo.png" alt="MFJ Capital Sdn Bhd Logo" class="hero-mfj-mini-logo">
+            </div>
+            <h1 class="hero-title">
+              Discover the Thrill of Water Sports at <span class="highlight-blue">White &amp; Black Aquasports</span>
+            </h1>
+            <p class="hero-desc">
+              Immerse yourself in fun, serenity, and adventure across Kuala Lumpur’s most iconic scenic lakes.
+              Featuring pedal paddle boats, single &amp; double kayaks, high-speed bumper boats, water tricycles,
+              and botanical cruise boat rides for families, friends, and corporate teams.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#locations" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-compass"></i> Explore 2 Locations
+              </a>
+              <a href="#teambuilding" class="btn btn-secondary btn-lg">
+                <i class="fa-solid fa-users"></i> Team Building Packages
+              </a>
+            </div>
+
+            <div class="hero-features-list">
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Certified Life Jackets Included</span>
+              </div>
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-child-reaching"></i>
+                <span>Family &amp; Kids Friendly</span>
+              </div>
+              <div class="hero-feat-item">
+                <i class="fa-solid fa-star"></i>
+                <span>No Advance Experience Needed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="hero-visual-card">
+              <img src="image/hero.jpg" alt="Vibrant water sports on Malaysian lake" class="hero-visual-img">
+              <div class="hero-floating-stat">
+                <div class="hero-stat-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="hero-stat-text">
+                  <span class="num">2 Active Locations</span>
+                  <span class="lbl">Titiwangsa &amp; Taman Botani Perdana</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Corporate Membership Trust Showcase -->
+        <div class="hero-corporate-showcase">
+          <div class="hero-corp-card">
+            <div class="hero-corp-grid">
+              <div class="hero-corp-left">
+                <div class="hero-corp-header">
+                  <div class="hero-corp-logo-box">
+                    <img src="image/mfjCapitalLogo.png" alt="MFJ Capital Sdn Bhd Logo" class="hero-corp-logo-img">
+                  </div>
+                  <div class="hero-corp-title-wrap">
+                    <h3 class="hero-corp-heading">White &amp; Black Aquasports is a Proud Member of <span>MFJ CAPITAL
+                        SDN BHD</span></h3>
+                  </div>
+                </div>
+                <div class="hero-corp-body">
+                  <p>
+                    White &amp; Black Aquasports operates under the strategic leadership and corporate umbrella of
+                    <strong>MFJ CAPITAL SDN BHD</strong>.
+                    Dedicated to pioneering urban lake recreation, eco-tourism, and healthy lifestyle sports across
+                    Malaysia, this strong corporate backing
+                    empowers us to uphold international marine safety protocols, maintain certified equipment, and
+                    spearhead exciting waterfront expansions
+                    including our upcoming 2027 projects at Putrajaya, Tasik Ampang Hilir, and Tasik Impian Nilai.
+                  </p>
+                  <div class="hero-corp-perks">
+                    <div class="hero-corp-perk-item">
+                      <i class="fa-solid fa-certificate"></i>
+                      <span>Certified Marine Safety Standards</span>
+                    </div>
+                    <div class="hero-corp-perk-item">
+                      <i class="fa-solid fa-chart-line"></i>
+                      <span>Sustainable Lake Tourism Growth</span>
+                    </div>
+                    <div class="hero-corp-perk-item">
+                      <i class="fa-solid fa-handshake-angle"></i>
+                      <span>Trusted Corporate Governance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-corp-visual-col">
+                <div class="hero-corp-img-card">
+                  <img src="image/umnoNews.jpg"
+                    alt="Official Opening Ceremony of White & Black Aquasports covered by UMNO Online"
+                    class="hero-corp-launch-img">
+                  <div class="hero-corp-img-caption">
+                    <span class="caption-tag"><i class="fa-solid fa-newspaper"></i> UMNO Online Coverage</span>
+                    <span class="caption-title">Official Launch &amp; Ribbon-Cutting Ceremony</span>
+                    <span class="caption-sub">Lakeside Pier Opening at Tasik Titiwangsa</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-Time Operational Status Bar -->
+    <section class="status-bar-section">
+      <div class="container">
+        <div class="status-bar-card">
+          <div class="status-live-badge">
+            <span class="pulse-dot"></span>
+            <span>Live Operating Status (Malaysia Time UTC+8)</span>
+          </div>
+          <div class="status-branch-indicators">
+            <div class="branch-indicator">
+              <strong>Aquasports Tasik Titiwangsa:</strong>
+              <span id="titiwangsaStatusBadge" class="badge-open">Calculating...</span>
+            </div>
+            <div class="branch-indicator">
+              <strong>Ripplebay Taman Botani:</strong>
+              <span id="ripplebayStatusBadge" class="badge-open">Calculating...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2027 Expansion Section (Featured prominently) -->
+    <section class="expansion-section" id="expansion">
+      <div class="container">
+        <div class="expansion-banner-card">
+          <div class="expansion-content">
+            <span class="expansion-badge">
+              <i class="fa-solid fa-rocket"></i> Expansion Road Map 2027
+            </span>
+            <h2 class="expansion-title">
+              White &amp; Black Aquasports is Expanding in 2027!
+            </h2>
+            <p class="expansion-desc">
+              We are on a mission to bring world-class lake recreation and joyful waterfront adventures closer to you.
+              In 2027, White &amp; Black Aquasports will officially open <strong>3 brand-new landmark
+                locations</strong>:
+            </p>
+
+            <div class="expansion-locations-grid">
+              <!-- Coming Soon 1: Putrajaya -->
+              <div class="expansion-loc-box">
+                <div class="expansion-icon-wrap">
+                  <i class="fa-solid fa-landmark"></i>
+                </div>
+                <h3 class="expansion-loc-name">Putrajaya</h3>
+                <span class="expansion-loc-type">Administrative Capital Waterfront</span>
+                <p class="expansion-loc-desc">
+                  Set on Putrajaya’s vast iconic lake, offering premier cruising, endurance kayaking, and modern aquatic
+                  leisure against architectural wonders.
+                </p>
+                <span class="expansion-tag-pill">Coming Soon 2027</span>
+              </div>
+
+              <!-- Coming Soon 2: Tasik Ampang Hilir -->
+              <div class="expansion-loc-box">
+                <div class="expansion-icon-wrap">
+                  <i class="fa-solid fa-tree-city"></i>
+                </div>
+                <h3 class="expansion-loc-name">Tasik Ampang Hilir</h3>
+                <span class="expansion-loc-type">Urban Oasis &amp; Recreation Park</span>
+                <p class="expansion-loc-desc">
+                  Nestled within the vibrant Ampang district, this upcoming center will bring pedal boating, fitness
+                  water cycling, and sunset family sessions.
+                </p>
+                <span class="expansion-tag-pill">Coming Soon 2027</span>
+              </div>
+
+              <!-- Coming Soon 3: Tasik Impian Nilai -->
+              <div class="expansion-loc-box">
+                <div class="expansion-icon-wrap">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3 class="expansion-loc-name">Tasik Impian Nilai</h3>
+                <span class="expansion-loc-type">Negeri Sembilan Gateway Park</span>
+                <p class="expansion-loc-desc">
+                  Expanding our footprint beyond KL, providing community water games, student group rates, and thrilling
+                  bumper boats for the southern corridor.
+                </p>
+                <span class="expansion-tag-pill">Coming Soon 2027</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Showcase Section -->
+    <section class="locations-section" id="locations">
+      <!-- Infinite Marquee Text (Top - Loops to Left) -->
+      <div class="loc-marquee-strip loc-marquee-top">
+        <div class="loc-marquee-track loc-marquee-loop-left">
+          <div class="loc-marquee-group">
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+          </div>
+          <div class="loc-marquee-group" aria-hidden="true">
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Explore Our 2 Waterfront Destinations</h2>
+          <p class="section-subtitle">
+            Choose your ideal waterside adventure. From the vibrant energy and KL skyline views at
+            <strong>Tasik Titiwangsa</strong> to the lush, calming botanical sanctuary at <strong>Ripplebay Taman
+              Botani</strong>.
+          </p>
+        </div>
+
+        <!-- Location Filter Tabs -->
+        <div class="location-tab-controls">
+          <button class="loc-tab-btn active" data-location-target="all">
+            <i class="fa-solid fa-list-check"></i> Show All Locations
+          </button>
+          <button class="loc-tab-btn" data-location-target="titiwangsa">
+            Aquasports Tasik Titiwangsa
+          </button>
+          <button class="loc-tab-btn" data-location-target="ripplebay">
+            Ripplebay Taman Botani
+          </button>
+        </div>
+
+        <!-- LOCATION 1: Aquasports Tasik Titiwangsa -->
+        <div class="location-showcase-card" data-location-id="titiwangsa" id="loc-titiwangsa">
+          <div class="location-hero-banner">
+            <div class="location-hero-content">
+              <div class="location-brand-badge">
+                <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa Logo"
+                  class="location-branch-logo">
+                <span class="location-badge-pill badge-titiwangsa">Branch 01</span>
+              </div>
+              <h3 class="location-card-title">Aquasports Tasik Titiwangsa</h3>
+              <div class="location-hero-visual-mobile">
+                <img src="image/titiwangsa.jpg" alt="Water sports activities at Tasik Titiwangsa">
+              </div>
+              <p class="location-card-tagline">
+                The ultimate urban water adventure spot with breathtaking skyline views of the Petronas Twin Towers
+                &amp; KL Tower.
+              </p>
+
+              <div class="location-quick-meta">
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-map-pin"></i>
+                  <div>
+                    <strong>Location</strong>
+                    <span>Taman Tasik Titiwangsa, Jalan Tembeling, KL</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-mountain-city"></i>
+                  <div>
+                    <strong>Iconic Scenery</strong>
+                    <span>Best View &bull; Can see KLCC Twin Towers &amp; KL Skyline from the lake</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-clock"></i>
+                  <div>
+                    <strong>Open Days</strong>
+                    <span>Tue – Sun (Closed Every Monday)</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-users-gear"></i>
+                  <div>
+                    <strong>Special Feature</strong>
+                    <span>Full Corporate Team Building &amp; Water Games</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="location-card-actions">
+                <a href="aquasports-tasik-titiwangsa.html" class="btn btn-emerald btn-sm">
+                  <i class="fa-solid fa-receipt"></i> View Rates
+                </a>
+                <a href="https://wa.me/60136517030?text=Hi%20White%20%26%20Black%20Aquasports%2C%20I%20would%20like%20to%20inquire%20about%20Tasik%20Titiwangsa%20rides%20and%20rates!"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm"
+                  style="background:#25d366; border-color:#25d366; color:#ffffff;">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://maps.app.goo.gl/tnkvu8x3ihqyRsjC6" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary btn-sm">
+                  <i class="fa-solid fa-diamond-turn-right"></i> Directions
+                </a>
+              </div>
+            </div>
+
+            <div class="location-hero-visual">
+              <img src="image/titiwangsa.jpg" alt="Water sports activities at Tasik Titiwangsa">
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCATION 2: Ripplebay Taman Botani Perdana -->
+        <div class="location-showcase-card" data-location-id="ripplebay" id="loc-ripplebay">
+          <div class="location-hero-banner">
+            <div class="location-hero-content">
+              <div class="location-brand-badge">
+                <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani Perdana Logo"
+                  class="location-branch-logo">
+                <span class="location-badge-pill badge-ripplebay">Branch 02</span>
+              </div>
+              <h3 class="location-card-title">Ripplebay Taman Botani</h3>
+              <div class="location-hero-visual-mobile">
+                <img src="image/ripplebay.jpg" alt="Scenic swan boat cruise at Ripplebay Taman Botani Perdana">
+              </div>
+              <p class="location-card-tagline">
+                A serene waterfront haven inside Perdana Botanical Garden. Perfect for healing, tranquil canopy boat
+                cruises, and lush greenery.
+              </p>
+
+              <div class="location-quick-meta">
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-map-pin"></i>
+                  <div>
+                    <strong>Location</strong>
+                    <span>Taman Botani Perdana (Perdana Botanical Garden), KL</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-van-shuttle"></i>
+                  <div>
+                    <strong>Buggy Service</strong>
+                    <span>Shuttle Buggy available from parking to RippleBay</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-clock"></i>
+                  <div>
+                    <strong>Open Days</strong>
+                    <span>Tue – Sun &amp; Public Holidays (Closed Monday)</span>
+                  </div>
+                </div>
+                <div class="quick-meta-item">
+                  <i class="fa-solid fa-ship"></i>
+                  <div>
+                    <strong>Signature Experience</strong>
+                    <span>Scenic Boat Cruise &amp; Botanical Waters</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="location-card-actions">
+                <a href="ripplebay-taman-botani.html" class="btn btn-blue btn-sm">
+                  <i class="fa-solid fa-receipt"></i> View Rates
+                </a>
+                <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%2C%20I%20would%20like%20to%20inquire%20about%20Ripplebay%20Taman%20Botani%20rides%20and%20rates!"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm"
+                  style="background:#25d366; border-color:#25d366; color:#ffffff;">
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://maps.app.goo.gl/4pPJhaXTiZfsrW6d7" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary btn-sm">
+                  <i class="fa-solid fa-diamond-turn-right"></i> Directions
+                </a>
+              </div>
+            </div>
+
+            <div class="location-hero-visual">
+              <img src="image/ripplebay.jpg" alt="Scenic swan boat cruise at Ripplebay Taman Botani Perdana">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infinite Marquee Text (Bottom - Loops to Right) -->
+      <div class="loc-marquee-strip loc-marquee-bottom">
+        <div class="loc-marquee-track loc-marquee-loop-right">
+          <div class="loc-marquee-group">
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+          </div>
+          <div class="loc-marquee-group" aria-hidden="true">
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+            <div class="loc-marquee-item">
+              <span>WHITE &amp; BLACK AQUASPORTS</span>
+              <img src="image/wnbAquasportsLogo.png" alt="White & Black Aquasports Logo" class="loc-marquee-logo">
+              <span class="loc-marquee-bullet">✦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Team Building Section -->
+    <section class="teambuilding-section" id="teambuilding">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Special Water Games &amp; Team Building</h2>
+          <p class="section-subtitle">
+            Ignite team spirit, camaraderie, and excitement with our signature lakeside teambuilding programs
+            at Tasik Titiwangsa. Complete with professional coordination, safety gear, meal packs, and award options.
+          </p>
+        </div>
+
+        <!-- Featured Package Card -->
+        <div class="tb-hero-card">
+          <div class="tb-hero-grid">
+            <!-- Collage Showcase (tb1.jpg - tb4.jpg) -->
+            <div class="tb-hero-image-wrap tb-collage-wrap">
+              <div class="tb-collage-grid-4">
+                <div class="tb-collage-item">
+                  <img src="image/tb1.jpg" alt="Team Building Spirit & Celebration" loading="lazy">
+                  <span class="tb-collage-tag"><i class="fa-solid fa-users"></i> Team Spirit</span>
+                </div>
+                <div class="tb-collage-item">
+                  <img src="image/tb2.jpg" alt="Lakeside Kayak Fleet Strategy" loading="lazy">
+                  <span class="tb-collage-tag"><i class="fa-solid fa-sailboat"></i> Lake Fleet</span>
+                </div>
+                <div class="tb-collage-item">
+                  <img src="image/tb3.jpg" alt="Water Confident Open Water Swim" loading="lazy">
+                  <span class="tb-collage-tag"><i class="fa-solid fa-person-swimming"></i> Water Confident</span>
+                </div>
+                <div class="tb-collage-item">
+                  <img src="image/tb4.jpg" alt="Kayak Tug O' War Action" loading="lazy">
+                  <span class="tb-collage-tag"><i class="fa-solid fa-trophy"></i> Tug O' War</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-hero-content">
+              <span class="location-badge-pill badge-titiwangsa" style="align-self:flex-start; margin-bottom:0.75rem;">
+                Official Program • Tasik Titiwangsa
+              </span>
+              <h3 style="font-size:2rem; margin-bottom:0.75rem; color:var(--brand-navy);">Team Building Water Challenge
+              </h3>
+              <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1rem;">
+                Experience structured aquatic team challenges that test leadership, agility, and unity in deep water.
+                Choose any 3 games from our curated challenge list.
+              </p>
+
+              <div class="tb-features-row">
+                <div class="tb-feature-pill">
+                  <i class="fa-solid fa-utensils"></i>
+                  <div class="tb-feature-text">
+                    <strong>Add-On Food Packs</strong>
+                    <span>Hot bento lunch packs (Choice of Set A / B / C) + chilled drinks</span>
+                  </div>
+                </div>
+                <div class="tb-feature-pill">
+                  <i class="fa-solid fa-fire-burner"></i>
+                  <div class="tb-feature-text">
+                    <strong>Custom Food &amp; Buffets</strong>
+                    <span>Grand lakeside buffet banquet spreads tailored by Chef Adib (30+ pax)</span>
+                  </div>
+                </div>
+                <div class="tb-feature-pill">
+                  <i class="fa-solid fa-award"></i>
+                  <div class="tb-feature-text">
+                    <strong>Event Add-Ons &amp; Accolades</strong>
+                    <span>Custom medals, championship trophies, PA sound system &amp; banners</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tb-hero-card-actions">
+                <a href="aquasports-tasik-titiwangsa.html#teambuilding" class="btn btn-emerald btn-sm">
+                  <i class="fa-solid fa-tags"></i>
+                  <span class="desktop-text">View Price &amp; Packages</span>
+                  <span class="mobile-text">View Packages</span>
+                </a>
+                <a href="https://wa.me/60136517030?text=Hi%20White%20%26%20Black%20Aquasports%2C%20I%20want%20to%20inquire%20about%20Team%20Building%20packages!"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span class="desktop-text">Chat with Coordinator</span>
+                  <span class="mobile-text">Chat Coordinator</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Special Water Games -->
+        <div class="tb-games-head">
+          <h3 style="font-size:1.85rem; color:var(--brand-navy); margin-bottom:0.5rem;">Select Your 3 Challenge Games
+          </h3>
+          <p style="color:var(--text-subtle); font-size:0.95rem;">Game 1 (Water Confident) is compulsory for safety and
+            acclimatization, followed by 2 games of your choice:</p>
+        </div>
+
+        <div class="tb-games-grid">
+          <!-- Game 1: Water Confident -->
+          <div class="game-card compulsory">
+            <img src="image/waterConfident.png" alt="Water Confident" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #01</div>
+              <h4 class="game-card-title">Water Confident</h4>
+            </div>
+            <p class="game-card-desc">
+              Each person will swim on the lake using only a safety life jacket. This essential activity builds personal
+              self-confidence, eliminates water anxiety, and teaches participants to become braver, especially in deep
+              open water.
+            </p>
+            <span class="game-compulsory-tag"><i class="fa-solid fa-star"></i> Compulsory</span>
+          </div>
+
+          <!-- Game 2: Kayak Tug O' War -->
+          <div class="game-card">
+            <img src="image/kayakTugOWar.png" alt="Kayak Tug O' War" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #02</div>
+              <h4 class="game-card-title">Kayak Tug O' War</h4>
+            </div>
+            <p class="game-card-desc">
+              Two canoes face opposite directions (2 or 4 people per canoe) tied together with a strong heavy rope.
+              Teams paddle intensely forward to pull the rope to their side. The team that secures the longest rope
+              wins!
+            </p>
+          </div>
+
+          <!-- Game 3: The Golden Duck -->
+          <div class="game-card">
+            <img src="image/theGoldenDuck.png" alt="The Golden Duck" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #03</div>
+              <h4 class="game-card-title">The Golden Duck</h4>
+            </div>
+            <p class="game-card-desc">
+              Teams scramble across the lake in their canoes to retrieve floating golden ducks scattered across
+              designated zones. Rapid navigation and sharp eyes are crucial. The team collecting the most golden ducks
+              claims victory.
+            </p>
+          </div>
+
+          <!-- Game 4: Kayak Race -->
+          <div class="game-card">
+            <img src="image/kayakRace.png" alt="Kayak Race" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #04</div>
+              <h4 class="game-card-title">Kayak Race</h4>
+            </div>
+            <p class="game-card-desc">
+              High-intensity sprint! Each squad paddles their canoe in unison from Point A to Point B. The first team
+              with all racers successfully crossing the finish line leg of the race takes the winner's podium.
+            </p>
+          </div>
+
+          <!-- Game 5: No Paddle Kayak Race -->
+          <div class="game-card">
+            <img src="image/noPaddleKayakRace.png" alt="No Paddle Kayak Race" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #05</div>
+              <h4 class="game-card-title">No Paddle Kayak Race</h4>
+            </div>
+            <p class="game-card-desc">
+              Paddles are removed! Teams must move their kayaks from Point A to Point B solely relying on bare hands,
+              body motion, teamwork, or any creative propulsion strategy. Highly hilarious and demanding of true team
+              synchronization!
+            </p>
+          </div>
+
+          <!-- Game 6: Broken Radio -->
+          <div class="game-card">
+            <img src="image/brokenRadio.png" alt="Broken Radio" class="challenge-3d-img" loading="lazy">
+            <div class="game-card-meta">
+              <div class="game-card-num">Challenge #06</div>
+              <h4 class="game-card-title">Broken Radio</h4>
+            </div>
+            <p class="game-card-desc">
+              One player draws a secret phrase from a bag and memorizes it. They paddle to Point B and relay the phrase
+              verbally to Team B — strictly no writing allowed! Team B then paddles back to write what they heard.
+              Closest phrase wins points!
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Building Catering, Event Add-Ons & Accolades Showcase -->
+        <div class="tb-games-head" style="margin-top: 4rem;">
+          <h3 style="font-size:1.85rem; color:var(--brand-navy); margin-bottom:0.5rem;">
+            Lakeside Catering, Event Add-Ons &amp; Accolades
+          </h3>
+          <p style="color:var(--text-subtle); font-size:0.95rem;">
+            Enhance your corporate team building with delicious lakeside dining, custom champion hampers, and complete
+            event logistics support:
+          </p>
+        </div>
+
+        <div class="tb-extras-grid">
+          <!-- Card 1: Lakeside Catering & Meal Packs -->
+          <div class="tb-extra-card">
+            <div class="tb-extra-img-wrap">
+              <img src="image/food.jpg" alt="Lakeside Hot Buffet Catering & Fresh Bento Meal Packs" loading="lazy">
+              <span class="tb-extra-badge"><i class="fa-solid fa-utensils"></i> Lakeside Catering</span>
+            </div>
+            <div class="tb-extra-body">
+              <h4 class="tb-extra-title">Lakeside Catering &amp; Meal Packs</h4>
+              <p class="tb-extra-desc">
+                Fuel your hungry crew after water games with fresh, steaming meal packs or a grand lakeside buffet
+                spread prepared by Chef Adib for groups of 30+ pax.
+              </p>
+              <div class="tb-extra-tags">
+                <span class="tb-extra-tag"><i class="fa-solid fa-box-open"></i> Bento Set A / B / C</span>
+                <span class="tb-extra-tag"><i class="fa-solid fa-fire-burner"></i> Hot Buffet Feasts</span>
+                <span class="tb-extra-tag"><i class="fa-solid fa-bottle-water"></i> Chilled 100 Plus &amp; Drinks</span>
+              </div>
+              <a href="aquasports-tasik-titiwangsa.html#teambuilding" class="btn btn-secondary btn-sm"
+                style="margin-top:auto; align-self:flex-start;">
+                <i class="fa-solid fa-arrow-right"></i> View Catering Packages
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Event Add-Ons & Championship Accolades -->
+          <div class="tb-extra-card">
+            <div class="tb-extra-img-wrap">
+              <img src="image/hampers.webp" alt="Corporate Team Building Gift Hampers and Award Supplies"
+                loading="lazy">
+              <span class="tb-extra-badge"><i class="fa-solid fa-trophy"></i> Awards &amp; Logistics</span>
+            </div>
+            <div class="tb-extra-body">
+              <h4 class="tb-extra-title">Accolades, Trophies &amp; Event Equipment</h4>
+              <p class="tb-extra-desc">
+                Turn your team challenge into a grand championship regatta with official prize hampers, custom cast
+                medals, heavy brass trophies, novelty winner cheques, and full PA sound setup.
+              </p>
+              <div class="tb-extra-tags">
+                <span class="tb-extra-tag"><i class="fa-solid fa-gift"></i> Champion Gift Hampers</span>
+                <span class="tb-extra-tag"><i class="fa-solid fa-medal"></i> Cast Medals &amp; Trophies</span>
+                <span class="tb-extra-tag"><i class="fa-solid fa-volume-high"></i> PA Sound &amp; Banners</span>
+              </div>
+              <a href="aquasports-tasik-titiwangsa.html#teambuilding" class="btn btn-secondary btn-sm"
+                style="margin-top:auto; align-self:flex-start;">
+                <i class="fa-solid fa-arrow-right"></i> View Accolades &amp; Pricing
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Station 1: Gallery Lead-in Station (Paddle Origin) -->
+    <section class="gallery-lead-section" id="gallery">
+      <div class="container text-center">
+        <span class="badge-pill mb-2"><i class="fa-solid fa-camera-retro"></i> Captured Moments</span>
+        <h2 class="gallery-lead-title">
+          <span class="gallery-lead-line">DISCOVER</span>
+          <span class="gallery-lead-line gallery-lead-nowrap">WHITE &amp; BLACK</span>
+          <span class="gallery-lead-line gallery-lead-nowrap">AQUASPORTS</span>
+        </h2>
+        <p class="gallery-lead-subtitle">From calm sunrise ripples to golden sunset cruises across Kuala Lumpur's scenic
+          lakes</p>
+        <div class="paddle-anchor-hero" id="heroPaddleAnchor"></div>
+        <div class="gallery-scroll-cue">
+          <span>Scroll to Explore Gallery</span>
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Station 2: 3D Cylindrical Runway Gallery Section (Pure Black) -->
+    <div class="gallery-wrapper" id="galleryRunway">
+      <div class="gallery-sticky" id="gallerySticky">
+        <div class="viewport" id="viewport">
+          <div class="arena" id="arena"></div>
+        </div>
+        <div class="vignette"></div>
+      </div>
+    </div>
+
+    <!-- Floating Paddle Element for Scroll Journey -->
+    <div class="paddle-wrapper" id="paddleWrapper">
+      <div class="paddle-inner" id="paddleInner">
+        <img src="image/paddle.png" alt="Kayak Paddle" id="paddleImg" draggable="false">
+      </div>
+    </div>
+
+    <!-- Flanking Words in 3D Gallery -->
+    <div class="center-quote-container" id="quoteContainer">
+      <div class="center-quote-inner" id="quoteInner">
+        <div class="flank-quote flank-left">Paddle your</div>
+        <div class="flank-gap"></div>
+        <div class="flank-quote flank-right">memories with us</div>
+      </div>
+    </div>
+
+    <!-- 3D Gallery Lightbox Modal -->
+    <div class="modal gallery-3d-modal" id="popupModal">
+      <div class="modal-box">
+        <button class="modal-close" id="closeBtn" title="Close (Esc)">&times;</button>
+        <img id="modalImage" src="" alt="Aquasports Preview" draggable="false">
+      </div>
+    </div>
+
+    <!-- Side-by-Side Location Comparison -->
+    <section class="comparison-section">
+      <div class="container">
+        <!-- Station 3: Kayak Man Destination (Paddle Target) -->
+        <div class="kayak-station-wrap">
+          <div class="kayak-man-container">
+            <div class="kayak-hand-anchor" id="contactPaddleAnchor"></div>
+            <img src="image/kayakMen.png" alt="W&B Aquasports Kayaker" class="kayak-man-img" draggable="false">
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2 class="section-title">Which Location is Right for You?</h2>
+          <p class="section-subtitle">A quick comparison guide between our two prime waterfront parks in Kuala Lumpur.
+          </p>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature / Activity</th>
+                <th>Aquasports Tasik Titiwangsa</th>
+                <th>Ripplebay Taman Botani</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ambiance &amp; Vibe</strong></td>
+                <td>Vibrant, energetic park with iconic KL skyline views</td>
+                <td>Quiet, healing, lush tropical botanical sanctuary</td>
+              </tr>
+              <tr>
+                <td><strong>Paddle Boats</strong></td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Available (RM15 Adult / RM10 Junior)</td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Available (RM15 Adult / RM10 Junior)</td>
+              </tr>
+              <tr>
+                <td><strong>Kayaks (Single &amp; Double)</strong></td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Available (RM20 Single / RM15 Double)</td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Available (RM20 Single / RM15 Double)</td>
+              </tr>
+              <tr>
+                <td><strong>Canopy Cruise Boat</strong></td>
+                <td>Electric Boat available</td>
+                <td><i class="fa-solid fa-star" style="color:#f59e0b;"></i> Signature Swan Cruise Boat (RM25/pax)</td>
+              </tr>
+              <tr>
+                <td><strong>Bumper Boats with Water Squirters</strong></td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Yes (Weekday RM40 / Weekend RM50)</td>
+                <td><i class="fa-solid fa-xmark" style="color:#94a3b8;"></i> Not available</td>
+              </tr>
+              <tr>
+                <td><strong>Water Tricycle &amp; Water Bike</strong></td>
+                <td><i class="fa-solid fa-check" style="color:#16a34a;"></i> Yes (RM25 Adult)</td>
+                <td><i class="fa-solid fa-xmark" style="color:#94a3b8;"></i> Not available</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate Team Building</strong></td>
+                <td><i class="fa-solid fa-award" style="color:#0d9488;"></i> Full programs &amp; 6 water games available
+                </td>
+                <td>Casual group bookings available upon request</td>
+              </tr>
+              <tr>
+                <td><strong>Late Night Hours (Until 10 PM)</strong></td>
+                <td>Closes 9:15 PM on Fri-Sun</td>
+                <td><i class="fa-solid fa-moon" style="color:#3b82f6;"></i> Open until 10:00 PM on Fri, Sat &amp; Sun
+                </td>
+              </tr>
+              <tr>
+                <td style="border-bottom:none;"><strong>Internal Shuttle Buggy</strong></td>
+                <td style="border-bottom:none;">Easy walking access from main car park</td>
+                <td style="border-bottom:none;"><i class="fa-solid fa-van-shuttle" style="color:#3b82f6;"></i> Available
+                  (RM5 one-way to jetty)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waterfront Growth Roadmap Section -->
+    <section class="roadmap-section" id="roadmap">
+      <div class="container">
+        <div class="section-head text-center">
+          <h2 class="section-title">White &amp; Black Aquasports Journey</h2>
+          <p class="section-subtitle">
+            From our founding waters at Tasik Titiwangsa to our latest botanical operations and upcoming 2027 waterfront
+            expansions.
+          </p>
+        </div>
+
+        <div class="roadmap-timeline-wrapper" id="roadmapTimelineWrapper">
+          <!-- Central Water Track & Gliding Kayak Guide -->
+          <div class="roadmap-water-track" id="roadmapWaterTrack">
+            <div class="roadmap-line-bg"></div>
+            <div class="roadmap-line-progress" id="roadmapLineProgress"></div>
+
+            <!-- Animated Gliding Kayak Avatar with Alternating Paddle Strokes -->
+            <div class="roadmap-kayak-avatar" id="roadmapKayak">
+              <div class="kayak-wake-glow"></div>
+              <div class="kayak-pointer-ripple"></div>
+              <img src="image/kayakRoadmap1.png" alt="Roadmap Paddling Kayak Stroke 1"
+                class="roadmap-kayak-img kayak-frame-1 active" id="kayakFrame1" loading="eager" decoding="sync">
+              <img src="image/kayakRoadmap2.png" alt="Roadmap Paddling Kayak Stroke 2"
+                class="roadmap-kayak-img kayak-frame-2" id="kayakFrame2" loading="eager" decoding="sync">
+            </div>
+
+            <!-- Start Line (Starting Point - Layered Below Kayak) -->
+            <div class="roadmap-start-line">
+              <img src="image/startLine.png" alt="Start Line" class="roadmap-start-line-img">
+            </div>
+
+            <!-- Finish Line (End Point - Above Kayak) -->
+            <div class="roadmap-finish-line">
+              <img src="image/finishLine.png" alt="Finish Line" class="roadmap-finish-line-img">
+            </div>
+          </div>
+
+          <!-- Roadmap Milestones Timeline -->
+          <div class="roadmap-milestones">
+            <!-- Milestone 1: Aquasports Tasik Titiwangsa (29th October 2023) -->
+            <div class="roadmap-item roadmap-left" data-milestone="1">
+              <div class="roadmap-node">
+                <span class="node-dot"></span>
+                <span class="node-pulse"></span>
+              </div>
+              <div class="roadmap-card">
+                <div class="roadmap-card-header">
+                  <span class="roadmap-date-pill active-badge">
+                    <i class="fa-solid fa-calendar-check"></i> 29th October 2023
+                  </span>
+                  <span class="roadmap-status-badge status-active">
+                    <i class="fa-solid fa-circle-check"></i> Flagship Active
+                  </span>
+                </div>
+                <div class="roadmap-branch-identity">
+                  <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa Logo"
+                    class="roadmap-branch-logo">
+                  <h3 class="roadmap-loc-title">
+                    <i class="fa-solid fa-location-dot" style="color:var(--loc-titiwangsa);"></i> Aquasports Tasik
+                    Titiwangsa
+                  </h3>
+                </div>
+                <p class="roadmap-card-desc">
+                  Our premier founding waterfront hub officially opened to the public in Kuala Lumpur. Featuring single
+                  &amp; double kayaking, swan pedal boats, aquatic bumper boats, and water cycling under the iconic
+                  panoramic KLCC skyline.
+                </p>
+                <div class="roadmap-card-footer">
+                  <a href="#loc-titiwangsa" class="roadmap-link-btn">
+                    <span>Explore Titiwangsa Jetty</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 2: Ripplebay Taman Botani (26th March 2026) -->
+            <div class="roadmap-item roadmap-right" data-milestone="2">
+              <div class="roadmap-node">
+                <span class="node-dot"></span>
+                <span class="node-pulse"></span>
+              </div>
+              <div class="roadmap-card">
+                <div class="roadmap-card-header">
+                  <span class="roadmap-date-pill active-badge">
+                    <i class="fa-solid fa-calendar-check"></i> 26th March 2026
+                  </span>
+                  <span class="roadmap-status-badge status-active">
+                    <i class="fa-solid fa-circle-check"></i> Botanical Active
+                  </span>
+                </div>
+                <div class="roadmap-branch-identity">
+                  <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani Logo" class="roadmap-branch-logo">
+                  <h3 class="roadmap-loc-title">
+                    <i class="fa-solid fa-location-dot" style="color:var(--loc-ripplebay);"></i> Ripplebay Taman Botani
+                  </h3>
+                </div>
+                <p class="roadmap-card-desc">
+                  Expanded into the historic Perdana Botanical Garden. Delivering serene eco-cruising with signature
+                  canopy electric boats, our giant swan cruise boat, and relaxing sunset-to-night lake tours open until
+                  10:00 PM.
+                </p>
+                <div class="roadmap-card-footer">
+                  <a href="#loc-ripplebay" class="roadmap-link-btn">
+                    <span>Explore Ripplebay Jetty</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone 3: Putrajaya (Coming Soon 2027) -->
+            <div class="roadmap-item roadmap-left" data-milestone="3">
+              <div class="roadmap-node">
+                <span class="node-dot"></span>
+                <span class="node-pulse"></span>
+              </div>
+              <div class="roadmap-card upcoming-card">
+                <div class="roadmap-card-header">
+                  <span class="roadmap-date-pill upcoming-badge">
+                    <i class="fa-solid fa-sparkles"></i> Coming Soon 2027
+                  </span>
+                  <span class="roadmap-status-badge status-upcoming">
+                    <i class="fa-solid fa-hourglass-half"></i> In Development
+                  </span>
+                </div>
+                <h3 class="roadmap-loc-title">
+                  <i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Putrajaya Waterfront
+                </h3>
+                <p class="roadmap-card-desc">
+                  Expanding to Malaysia's administrative capital. Planned to host wide-expanse distance kayaking,
+                  collegiate sprint regattas, and executive corporate water sports challenges across the grand Putrajaya
+                  Lake.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 4: Tasik Ampang Hilir (Coming Soon 2027) -->
+            <div class="roadmap-item roadmap-right" data-milestone="4">
+              <div class="roadmap-node">
+                <span class="node-dot"></span>
+                <span class="node-pulse"></span>
+              </div>
+              <div class="roadmap-card upcoming-card">
+                <div class="roadmap-card-header">
+                  <span class="roadmap-date-pill upcoming-badge">
+                    <i class="fa-solid fa-sparkles"></i> Coming Soon 2027
+                  </span>
+                  <span class="roadmap-status-badge status-upcoming">
+                    <i class="fa-solid fa-hourglass-half"></i> In Development
+                  </span>
+                </div>
+                <h3 class="roadmap-loc-title">
+                  <i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Tasik Ampang Hilir
+                </h3>
+                <p class="roadmap-card-desc">
+                  Bringing premier lake recreation to the vibrant eastern Klang Valley corridor. Designed as a friendly
+                  urban community lakeside destination with water cycling, twilight paddling, and healthy family fitness
+                  activities.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 5: Tasik Impian Nilai (Coming Soon 2027) -->
+            <div class="roadmap-item roadmap-left" data-milestone="5">
+              <div class="roadmap-node">
+                <span class="node-dot"></span>
+                <span class="node-pulse"></span>
+              </div>
+              <div class="roadmap-card upcoming-card">
+                <div class="roadmap-card-header">
+                  <span class="roadmap-date-pill upcoming-badge">
+                    <i class="fa-solid fa-sparkles"></i> Coming Soon 2027
+                  </span>
+                  <span class="roadmap-status-badge status-upcoming">
+                    <i class="fa-solid fa-hourglass-half"></i> In Development
+                  </span>
+                </div>
+                <h3 class="roadmap-loc-title">
+                  <i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Tasik Impian Nilai
+                </h3>
+                <p class="roadmap-card-desc">
+                  Extending our footprint into Negeri Sembilan's educational growth corridor. A high-energy regional
+                  community hub featuring youth water games, student group discount packages, and aquatic bumper boat
+                  arenas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety & Rules -->
+    <section class="safety-section" id="safety">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Your Safety Is Our Top Priority</h2>
+          <p class="section-subtitle">We adhere to rigorous marine safety protocols to ensure peace of mind for you and
+            your family.</p>
+        </div>
+
+        <div class="safety-grid">
+          <div class="safety-card">
+            <div class="safety-icon">
+              <i class="fa-solid fa-vest"></i>
+            </div>
+            <h4>Mandatory Life Jackets</h4>
+            <p>Every participant, regardless of swimming ability, must wear an approved, properly fitted life jacket
+              before boarding.</p>
+          </div>
+
+          <div class="safety-card">
+            <div class="safety-icon">
+              <i class="fa-solid fa-life-ring"></i>
+            </div>
+            <h4>Trained Marshals On Duty</h4>
+            <p>Certified water safety marshals and rescue motorboats actively patrol the lake surface during all
+              operational hours.</p>
+          </div>
+
+          <div class="safety-card">
+            <div class="safety-icon">
+              <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+            <h4>Weather Monitored</h4>
+            <p>Operations are temporarily halted in the event of heavy rain or lightning warnings for the absolute
+              safety of riders.</p>
+          </div>
+
+          <div class="safety-card">
+            <div class="safety-icon">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <h4>Attire Recommendations</h4>
+            <p>Comfortable light sportswear or quick-dry apparel is recommended. A change of clothes is advised for
+              bumper boat rides!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know before visiting White &amp; Black Aquasports.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" type="button">
+              <span>Do I need to make an advance booking for standard rides?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                No advance booking is required for standard walk-in rides (paddle boats, kayaks, electric boats, bumper
+                boats)! You can purchase tickets directly at our ticket counters at either Tasik Titiwangsa or Ripplebay
+                Taman Botani. However, advance reservations are required for corporate team building and private group
+                bookings.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" type="button">
+              <span>Do you accept both Malaysian and International visitors?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Yes! Both Malaysian citizens and international tourists are warmly welcome. Malaysian citizens can
+                present their MyKad at the counter to enjoy citizen rates, while international guests enjoy our
+                competitive tourist pricing.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" type="button">
+              <span>Are young children allowed on the boats?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Yes! Toddlers and children are welcome when accompanied by adult guardians. At Tasik Titiwangsa,
+                toddlers aged 6 and below ride for Free (F.O.C) on paddle boats and electric boats. At Ripplebay,
+                children aged 3 to 6 ride for Free (F.O.C) on cruise and paddle boats. Child-sized life vests are
+                provided.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" type="button">
+              <span>How do I reach Ripplebay inside Taman Botani Perdana?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                You can either take a pleasant walk through the botanical gardens or ride our dedicated Shuttle Buggy
+                service (RM 5.00/pax one way) which transports you comfortably from the parking pick-up point straight
+                to the Ripplebay jetty.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" type="button">
+              <span>When will the 3 new 2027 locations open?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Our expansion into Putrajaya, Tasik Ampang Hilir, and Tasik Impian Nilai is targeted for phased openings
+                throughout 2027. Stay tuned to our social media channels for ground-breaking announcements and grand
+                opening promotions!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact, Addresses & Directions -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Visit Us or Connect With Us</h2>
+          <p class="section-subtitle">Reach out to our customer care team or find your way to either of our lakeside
+            locations.</p>
+        </div>
+
+        <div class="locations-contact-grid">
+          <!-- Card 1: Tasik Titiwangsa -->
+          <div class="location-contact-card">
+            <span class="loc-badge-top" style="color:var(--loc-titiwangsa);">
+              <i class="fa-solid fa-location-dot"></i> Branch 01
+            </span>
+            <h3 style="font-size:1.6rem; color:var(--brand-navy); margin-bottom:0.5rem;">Aquasports Tasik Titiwangsa
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-subtle);">Taman Tasik Titiwangsa Kuala Lumpur</p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-row">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>Taman Tasik Titiwangsa, Jalan Tembeling, 53200 Kuala Lumpur</span>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone / WhatsApp</strong>
+                  <span><a href="https://wa.me/60136517030" target="_blank" rel="noopener noreferrer"
+                      style="color:inherit; text-decoration:none;">+60 13-651 7030</a></span>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-solid fa-utensils"></i>
+                <div>
+                  <strong>Buffet &amp; Catering Inquiry</strong>
+                  <span>+60 11-2392 7595 (Chef Adib)</span>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-brands fa-instagram"></i>
+                <div>
+                  <strong>Instagram</strong>
+                  <a href="https://www.instagram.com/white_blackaquasports" target="_blank" rel="noopener noreferrer"
+                    style="color:var(--brand-cyan); font-weight:600;">@white_blackaquasports</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-brands fa-facebook"></i>
+                <div>
+                  <strong>Facebook</strong>
+                  <a href="https://www.facebook.com/p/White-N-Black-Aquasports-100092673411401/" target="_blank"
+                    rel="noopener noreferrer" style="color:var(--brand-cyan); font-weight:600;">White N Black
+                    Aquasports</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="https://wa.me/60136517030" target="_blank" rel="noopener noreferrer"
+                class="btn btn-emerald btn-sm">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://maps.app.goo.gl/tnkvu8x3ihqyRsjC6" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-location-arrow"></i> Google Maps
+              </a>
+              <a href="https://waze.com/ul?q=Taman%20Tasik%20Titiwangsa" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
+                <i class="fa-brands fa-waze"></i> Waze
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Ripplebay -->
+          <div class="location-contact-card">
+            <span class="loc-badge-top" style="color:var(--loc-ripplebay);">
+              <i class="fa-solid fa-location-dot"></i> Branch 02
+            </span>
+            <h3 style="font-size:1.6rem; color:var(--brand-navy); margin-bottom:0.5rem;">Ripplebay Taman Botani</h3>
+            <p style="font-size:0.9rem; color:var(--text-subtle);">Perdana Botanical Garden Kuala Lumpur</p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-row">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>Taman Botani Perdana, Jalan Kebun Bunga, Tasik Perdana, 50480 Kuala Lumpur</span>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone / WhatsApp</strong>
+                  <span><a href="https://wa.me/60136597030" target="_blank" rel="noopener noreferrer"
+                      style="color:inherit; text-decoration:none;">+60 13-659 7030</a></span>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-brands fa-instagram"></i>
+                <div>
+                  <strong>Instagram</strong>
+                  <a href="https://www.instagram.com/ripplebay.botani" target="_blank" rel="noopener noreferrer"
+                    style="color:var(--brand-cyan); font-weight:600;">@ripplebay.botani</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <i class="fa-brands fa-facebook"></i>
+                <div>
+                  <strong>Facebook</strong>
+                  <a href="https://www.facebook.com/ripplebay.botani/" target="_blank" rel="noopener noreferrer"
+                    style="color:var(--brand-cyan); font-weight:600;">RippleBay</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="https://wa.me/60136597030" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://maps.app.goo.gl/4pPJhaXTiZfsrW6d7" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-location-arrow"></i> Google Maps
+              </a>
+              <a href="https://waze.com/ul?q=Taman%20Botani%20Perdana" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
+                <i class="fa-brands fa-waze"></i> Waze
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Column -->
+        <div>
+          <div class="footer-logos-duo">
+            <img src="image/wnbAquasportsLogo.png" alt="White &amp; Black Aquasports Logo" class="footer-brand-logo">
+            <span class="footer-logo-divider"></span>
+            <img src="image/mfjCapitalLogo.png" alt="MFJ Capital Sdn Bhd Logo" class="footer-partner-logo">
+          </div>
+          <p class="footer-about-p">
+            White &amp; Black Aquasports is a proud member of MFJ CAPITAL SDN BHD, delivering the finest water sports
+            and recreational experiences in Kuala Lumpur across Tasik Titiwangsa and Ripplebay Taman Botani, with
+            upcoming expansion in 2027.
+          </p>
+          <div class="footer-socials">
+            <button type="button" class="social-link" id="footerInstagramBtn" title="Choose Instagram Branch"
+              aria-haspopup="dialog" aria-expanded="false">
+              <i class="fa-brands fa-instagram"></i>
+            </button>
+            <a href="https://linktr.ee/WhiteNBlackBranches" target="_blank" rel="noopener noreferrer"
+              class="social-link" title="Linktree"><i class="fa-solid fa-link"></i></a>
+            <button type="button" class="social-link" id="footerWhatsappBtn" title="Choose WhatsApp Branch"
+              aria-haspopup="dialog" aria-expanded="false">
+              <i class="fa-brands fa-whatsapp"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#locations">Our Branch</a></li>
+            <li><a href="#teambuilding">Team Building</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#safety">Safety Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Current Locations -->
+        <div class="footer-col">
+          <h5>Current Locations</h5>
+          <ul class="footer-links-list">
+            <li><a href="aquasports-tasik-titiwangsa.html">Aquasports Tasik Titiwangsa</a></li>
+            <li><a href="ripplebay-taman-botani.html">Ripplebay Taman Botani</a></li>
+            <li><a href="#announcementBar">Operating Hours</a></li>
+            <li><a href="#contact" id="footerDirectWhatsappLink">Direct WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- 2027 Expansion -->
+        <div class="footer-col">
+          <h5>Coming Soon (2027)</h5>
+          <ul class="footer-links-list">
+            <li><a href="#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Putrajaya</a>
+            </li>
+            <li><a href="#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Tasik Ampang
+                Hilir</a></li>
+            <li><a href="#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i> Tasik Impian
+                Nilai</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span id="currentYear">2026</span> White &amp; Black Aquasports - Member of MFJ CAPITAL SDN BHD. All
+          Rights Reserved. Designed by <a href="https://venturerushtech.com/" target="_blank" rel="noopener noreferrer"
+            class="venturerush-link">VentureRush Tech</a>
+        </div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#safety">Safety Policy</a>
+          <a href="#contact">Location Maps</a>
+          <a href="#expansion">2027 Expansion</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Connect Button -->
+  <button type="button" class="floating-whatsapp-btn" id="floatingWhatsappBtn"
+    title="Contact White & Black Aquasports on WhatsApp" aria-haspopup="dialog" aria-expanded="false">
+    <i class="fa-brands fa-whatsapp fa-xl"></i>
+    <span>WhatsApp Us</span>
+  </button>
+
+  <!-- Instagram Branch Chooser Modal -->
+  <div class="branch-modal-backdrop" id="instagramBranchModal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="instagramModalTitle">
+    <div class="branch-modal-card">
+      <button class="branch-modal-close" id="closeInstagramModalBtn"
+        aria-label="Close Instagram Chooser">&times;</button>
+      <div class="branch-modal-header">
+        <div class="branch-modal-icon instagram-icon-bg">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <h3 class="branch-modal-title" id="instagramModalTitle">Choose Instagram Branch</h3>
+        <p class="branch-modal-subtitle">Follow our official Instagram accounts for photos, stories, and event updates:
+        </p>
+      </div>
+
+      <div class="branch-modal-options">
+        <!-- Branch 1: Tasik Titiwangsa -->
+        <a href="https://www.instagram.com/white_blackaquasports" target="_blank" rel="noopener noreferrer"
+          class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-titiwangsa">Branch 01 • Flagship</div>
+            <h4 class="branch-option-name">Aquasports Tasik Titiwangsa</h4>
+            <span class="branch-option-handle"><i class="fa-brands fa-instagram"></i> @white_blackaquasports</span>
+          </div>
+          <div class="branch-option-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <!-- Branch 2: Ripplebay Taman Botani -->
+        <a href="https://www.instagram.com/ripplebay.botani" target="_blank" rel="noopener noreferrer"
+          class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-ripplebay">Branch 02 • Botanical Sanctuary</div>
+            <h4 class="branch-option-name">Ripplebay Taman Botani</h4>
+            <span class="branch-option-handle"><i class="fa-brands fa-instagram"></i> @ripplebay.botani</span>
+          </div>
+          <div class="branch-option-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Branch Chooser Modal -->
+  <div class="branch-modal-backdrop" id="whatsappBranchModal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="whatsappModalTitle">
+    <div class="branch-modal-card">
+      <button class="branch-modal-close" id="closeWhatsappModalBtn" aria-label="Close WhatsApp Chooser">&times;</button>
+      <div class="branch-modal-header">
+        <div class="branch-modal-icon whatsapp-icon-bg">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3 class="branch-modal-title" id="whatsappModalTitle">Chat on WhatsApp</h3>
+        <p class="branch-modal-subtitle">Select your preferred waterfront location to chat directly with our team:</p>
+      </div>
+
+      <div class="branch-modal-options">
+        <!-- Branch 1: Tasik Titiwangsa -->
+        <a href="https://wa.me/60136517030?text=Hi%20White%20%26%20Black%20Aquasports%20(Tasik%20Titiwangsa)%2C%20I%20would%20like%20to%20inquire%20about%20rides%20and%20activities!"
+          target="_blank" rel="noopener noreferrer" class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-titiwangsa">Branch 01 • Flagship</div>
+            <h4 class="branch-option-name">Aquasports Tasik Titiwangsa</h4>
+            <span class="branch-option-handle whatsapp-handle"><i class="fa-brands fa-whatsapp"></i> +60 13-651
+              7030</span>
+          </div>
+          <div class="branch-option-arrow whatsapp-arrow">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+        </a>
+
+        <!-- Branch 2: Ripplebay Taman Botani -->
+        <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%20(Ripplebay%20Taman%20Botani)%2C%20I%20would%20like%20to%20inquire%20about%20rides%20and%20activities!"
+          target="_blank" rel="noopener noreferrer" class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-ripplebay">Branch 02 • Botanical Sanctuary</div>
+            <h4 class="branch-option-name">Ripplebay Taman Botani</h4>
+            <span class="branch-option-handle whatsapp-handle"><i class="fa-brands fa-whatsapp"></i> +60 13-659
+              7030</span>
+          </div>
+          <div class="branch-option-arrow whatsapp-arrow">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- Interactive Scripts -->
+    <script src="script.js?v=27"></script>
+</body>
+
+</html>

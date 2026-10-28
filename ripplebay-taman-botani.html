@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripplebay Taman Botani | Rates, Hours & Boat Cruises | White & Black Aquasports</title>
+  <meta name="description"
+    content="Official rates, operating hours, and water activities at Ripplebay Taman Botani, Perdana Botanical Garden, Kuala Lumpur. Featuring canopy cruise boats, swan pedal boats, single and double kayaks, and shuttle buggy service.">
+  <meta name="keywords"
+    content="Ripplebay Taman Botani, Perdana Botanical Garden boat cruise, swan pedal boat KL, Taman Botani kayak, botanical lake cruise, KL lake recreation">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="image/ripplebayLogo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&display=swap"
+      rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=52">
+</head>
+
+<body class="splash-screen-active">
+
+  <!-- Splash Screen Preloader (Shown for ~3s on page load/reload) -->
+  <div class="site-splash-screen splash-theme-ripplebay" id="siteSplashScreen" aria-label="Loading Ripplebay Taman Botani">
+    <div class="splash-ambient-glow"></div>
+    <div class="splash-card">
+      <div class="splash-logo-box">
+        <img src="image/ripplebayLogo.png" alt="Ripplebay Logo" class="splash-logo splash-logo-square">
+      </div>
+      <h2 class="splash-desc">Ripplebay Taman Botani</h2>
+      <div class="splash-status-line">
+        <span class="splash-status-text">Loading<span class="splash-dot-anim"><span>.</span><span>.</span><span>.</span></span></span>
+        <span class="splash-progress-val" id="splashProgressVal">0%</span>
+      </div>
+      <div class="splash-progress-track">
+        <div class="splash-progress-bar" id="splashProgressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Announcement Bar / Maintenance Alert Ticker -->
+  <div class="top-notice-bar branch-notice-ripplebay" id="announcementBar">
+    <div class="top-notice-inner">
+      <span class="badge-glow">
+        <i class="fa-solid fa-flag"></i> BRANCH 02
+      </span>
+      <div class="notice-ticker-track">
+        <div class="notice-ticker-content">
+          <span class="ticker-text">
+            Welcome to Ripplebay Taman Botani Perdana &bull; Open Tue – Sun &amp; Public Holidays (Closed Every Monday)
+            &bull; Night cruises open until 10:00 PM on Friday &amp; Weekends!
+          </span>
+          <span class="ticker-text ticker-clone" aria-hidden="true">
+            Welcome to Ripplebay Taman Botani Perdana &bull; Open Tue – Sun &amp; Public Holidays (Closed Every Monday)
+            &bull; Night cruises open until 10:00 PM on Friday &amp; Weekends!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Sticky Navigation -->
+  <header class="site-header" id="mainHeader">
+    <div class="container nav-container">
+      <a href="index.html#home" class="brand-logo-wrap" title="White & Black Aquasports">
+        <img src="image/wnbAquasportsLogo.png" alt="White &amp; Black Aquasports Logo" class="brand-logo logo-dark">
+        <img src="image/wnbAquasportsLogoWhite.png" alt="White &amp; Black Aquasports Logo" class="brand-logo logo-white">
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#locations" class="nav-link active">Our Branch</a>
+        <a href="aquasports-tasik-titiwangsa.html#teambuilding" class="nav-link">Team Building</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="index.html#roadmap" class="nav-link">Our Journey</a>
+        <a href="index.html#safety" class="nav-link">Safety &amp; FAQ</a>
+        <a href="#location-map" class="nav-link">Location &amp; Map</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#locations" class="btn btn-secondary btn-sm">
+          <i class="fa-solid fa-arrow-left"></i> All Locations
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Scenic Branch Panorama Billboard -->
+    <section class="branch-panorama-section">
+      <div class="branch-panorama-card">
+        <video class="branch-panorama-video" autoplay loop muted playsinline poster="image/ripplebayPanorama.jpg">
+          <source src="image/ripplebayVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="branch-panorama-overlay"></div>
+
+        <!-- Breadcrumb Navigation placed at top left side of panorama image -->
+        <nav class="branch-panorama-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          <span class="bc-sep"><i class="fa-solid fa-chevron-right"></i></span>
+          <a href="index.html#locations">Explore Waterfront Destinations</a>
+          <span class="bc-sep"><i class="fa-solid fa-chevron-right"></i></span>
+          <span class="bc-current">Ripplebay Taman Botani</span>
+        </nav>
+
+        <!-- Animated Wave Transition -->
+        <div class="wave-container wave-behind">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax-waves">
+              <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(240, 249, 255, 0.7)" />
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(240, 249, 255, 0.5)" />
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(240, 249, 255, 0.3)" />
+              <use xlink:href="#gentle-wave" x="48" y="7" fill="#eff6ff" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branch Hero Section -->
+    <section class="branch-page-header ripplebay-theme">
+      <div class="container">
+        <div class="branch-hero-wrap">
+          <div class="branch-hero-text">
+            <div class="location-brand-badge" style="margin-bottom:1rem;">
+              <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani Perdana Logo" class="location-branch-logo">
+              <span class="location-badge-pill badge-ripplebay">Branch 02 • Eco Botanical Sanctuary</span>
+            </div>
+            <h1 class="location-card-title" style="font-size:2.45rem; line-height:1.2; margin-bottom:0.85rem;">
+              Ripplebay Taman Botani
+            </h1>
+            <!-- Mobile/Tablet Hero Image Below Title -->
+            <div class="branch-hero-visual-mobile">
+              <img src="image/ripplebay.jpg" alt="Scenic swan boat cruise at Ripplebay Taman Botani Perdana"
+                class="branch-hero-img">
+            </div>
+            <p class="location-card-tagline" style="font-size:1.1rem; margin-bottom:1.5rem;">
+              A serene waterfront haven nestled inside the historic Perdana Botanical Garden. Perfect for healing,
+              tranquil canopy electric boat cruises, swan pedal boats, and lush tropical greenery.
+            </p>
+
+            <div class="location-quick-meta" style="margin-bottom:1.75rem;">
+              <div class="quick-meta-item">
+                <i class="fa-solid fa-map-pin"></i>
+                <div>
+                  <strong>Location</strong>
+                  <span>Taman Botani Perdana (Perdana Botanical Garden), KL</span>
+                </div>
+              </div>
+              <div class="quick-meta-item">
+                <i class="fa-solid fa-van-shuttle"></i>
+                <div>
+                  <strong>Buggy Service</strong>
+                  <span>Shuttle Buggy available from parking to RippleBay (RM5)</span>
+                </div>
+              </div>
+              <div class="quick-meta-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div>
+                  <strong>Open Days</strong>
+                  <span>Tue – Sun &amp; Public Holidays (Closed Monday)</span>
+                </div>
+              </div>
+              <div class="quick-meta-item">
+                <i class="fa-solid fa-ship"></i>
+                <div>
+                  <strong>Signature Experience</strong>
+                  <span>Canopy Cruise Boat &amp; Romantic Night Tours</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-hero-actions">
+              <a href="#pricing-table" class="btn btn-blue btn-sm">
+                <i class="fa-solid fa-receipt"></i>
+                <span class="desktop-text">Jump to Rates Table</span>
+                <span class="mobile-text">Rates Table</span>
+              </a>
+              <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%20(Ripplebay%20Taman%20Botani)%2C%20I%20would%20like%20to%20inquire%20about%20rides%20and%20rates!"
+                target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm btn-whatsapp-direct">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="desktop-text">WhatsApp Ripplebay</span>
+                <span class="mobile-text">WhatsApp</span>
+              </a>
+              <a href="#location-map" class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span class="desktop-text">View Location &amp; Map</span>
+                <span class="mobile-text">Location</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="branch-hero-visual branch-hero-visual-desktop">
+            <img src="image/ripplebay.jpg" alt="Scenic swan boat cruise at Ripplebay Taman Botani Perdana"
+              class="branch-hero-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branch Details Container -->
+    <section style="padding: 3.5rem 0 5rem;">
+      <div class="container">
+
+        <!-- Schedule & Info Box -->
+        <div class="schedule-and-info-box" style="margin-bottom: 3.5rem;">
+          <div class="schedule-grid">
+            <!-- Operating Hours Column -->
+            <div class="schedule-col-card">
+              <div class="schedule-header">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Operating Hours &amp; Sessions</span>
+              </div>
+              <table class="hours-table">
+                <tr>
+                  <td>Monday</td>
+                  <td class="highlight-closed">CLOSED (Weekly Maintenance)</td>
+                </tr>
+                <tr>
+                  <td>Weekday (Tuesday – Thursday)</td>
+                  <td>10:00 AM – 8:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td>10:00 AM – 10:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Weekend (Saturday &amp; Sunday)</td>
+                  <td>8:00 AM – 10:00 PM</td>
+                </tr>
+                <tr>
+                  <td>Public Holiday</td>
+                  <td>8:00 AM – 10:00 PM</td>
+                </tr>
+              </table>
+              <div class="hours-notice-note">
+                <i class="fa-solid fa-moon"></i>
+                <span>Night cruise rides available until 10:00 PM on Friday, Weekends &amp; Public Holidays!</span>
+              </div>
+            </div>
+
+            <!-- Visiting Tips & Buggy Transportation Column -->
+            <div class="schedule-col-card">
+              <div class="schedule-header">
+                <i class="fa-solid fa-compass"></i>
+                <span>Visiting Tips &amp; Buggy Transportation</span>
+              </div>
+              <ul
+                style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.92rem; color:var(--text-muted); list-style:none; padding:0;">
+                <li><i class="fa-solid fa-circle-check" style="color:var(--brand-blue); margin-right:8px;"></i>
+                  <strong>Shuttle Buggy (RM 5/pax):</strong> Hop on our convenient buggy ride straight from the main
+                  garden entry to Ripplebay jetty.
+                </li>
+                <li><i class="fa-solid fa-circle-check" style="color:var(--brand-blue); margin-right:8px;"></i>
+                  <strong>Cruise Boat:</strong> Canopied electric boat ride sheltered from sun and gentle rain.
+                </li>
+                <li><i class="fa-solid fa-circle-check" style="color:var(--brand-blue); margin-right:8px;"></i>
+                  <strong>Botanical Flora:</strong> Enjoy panoramic views of heritage trees, water lilies, and birdlife.
+                </li>
+                <li><i class="fa-solid fa-circle-check" style="color:var(--brand-blue); margin-right:8px;"></i>
+                  <strong>Swan Pedal Boats:</strong> Glide across the calm waters at your own gentle rhythm.
+                </li>
+                <li><i class="fa-solid fa-circle-check" style="color:var(--brand-blue); margin-right:8px;"></i>
+                  <strong>Safety First:</strong> Certified life jackets provided and compulsory for all riders.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boat Cruise Feature Showcase Card -->
+        <div class="boatcruise-feature-card" id="boatcruise-card">
+          <div class="boatcruise-feature-glow-accent"></div>
+          
+          <div class="boatcruise-feature-grid">
+            <!-- Left Collage Showcase (ripplebayBoatCruise1 till 3) -->
+            <div class="boatcruise-collage-wrap boatcruise-collage-desktop">
+              <div class="boatcruise-collage-grid">
+                <!-- Large featured stone bridge cruise photo -->
+                <div class="boatcruise-collage-item boatcruise-collage-large">
+                  <img src="image/ripplebayBoatCruise1.jpg" alt="Electric boat cruise gliding beneath the iconic heritage stone bridge at Taman Botani Perdana" loading="lazy">
+                  <span class="boatcruise-collage-tag"><i class="fa-solid fa-archway"></i> Heritage Stone Bridge</span>
+                </div>
+
+                <!-- Grand fountain cruise photo -->
+                <div class="boatcruise-collage-item boatcruise-collage-sub">
+                  <img src="image/ripplebayBoatCruise2.jpg" alt="Scenic boat cruise passing the soaring water fountains of Perdana Botanical Garden lake" loading="lazy">
+                  <span class="boatcruise-collage-tag"><i class="fa-solid fa-water"></i> Grand Fountain Cruise</span>
+                </div>
+
+                <!-- Pier boarding photo -->
+                <div class="boatcruise-collage-item boatcruise-collage-sub">
+                  <img src="image/ripplebayBoatCruise3.jpg" alt="Safe and assisted boarding at the Ripplebay boat house pier" loading="lazy">
+                  <span class="boatcruise-collage-tag"><i class="fa-solid fa-shield-heart"></i> Safe Pier Boarding</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Content & Actions -->
+            <div class="boatcruise-feature-content">
+              <div class="boatcruise-feature-badge">
+                <i class="fa-solid fa-ship"></i> SIGNATURE LAKE CRUISE
+              </div>
+
+              <h2 class="boatcruise-feature-title">Boat Cruise</h2>
+
+              <!-- Mobile/Tablet Collage Showcase Below Title -->
+              <div class="boatcruise-collage-mobile">
+                <div class="boatcruise-collage-grid">
+                  <!-- Large featured stone bridge cruise photo -->
+                  <div class="boatcruise-collage-item boatcruise-collage-large">
+                    <img src="image/ripplebayBoatCruise1.jpg" alt="Electric boat cruise gliding beneath the iconic heritage stone bridge at Taman Botani Perdana" loading="lazy">
+                    <span class="boatcruise-collage-tag"><i class="fa-solid fa-archway"></i> Heritage Stone Bridge</span>
+                  </div>
+
+                  <!-- Grand fountain cruise photo -->
+                  <div class="boatcruise-collage-item boatcruise-collage-sub">
+                    <img src="image/ripplebayBoatCruise2.jpg" alt="Scenic boat cruise passing the soaring water fountains of Perdana Botanical Garden lake" loading="lazy">
+                    <span class="boatcruise-collage-tag"><i class="fa-solid fa-water"></i> Grand Fountain Cruise</span>
+                  </div>
+
+                  <!-- Pier boarding photo -->
+                  <div class="boatcruise-collage-item boatcruise-collage-sub">
+                    <img src="image/ripplebayBoatCruise3.jpg" alt="Safe and assisted boarding at the Ripplebay boat house pier" loading="lazy">
+                    <span class="boatcruise-collage-tag"><i class="fa-solid fa-shield-heart"></i> Safe Pier Boarding</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="boatcruise-feature-desc">
+                Embark on a serene, picturesque water tour across the heart of Perdana Botanical Garden. Glide beneath lush rainforest canopies, cruise past historic architectural bridges, and experience soaring water fountains from the comfort of our sheltered electric cruise boat.
+              </p>
+
+              <div class="boatcruise-feature-perks">
+                <div class="boatcruise-perk-row">
+                  <i class="fa-solid fa-umbrella"></i>
+                  <span>Sheltered canopied boat protecting against sun and gentle rain</span>
+                </div>
+                <div class="boatcruise-perk-row">
+                  <i class="fa-solid fa-users"></i>
+                  <span>Relaxing and peaceful ride ideal for families, kids, and seniors</span>
+                </div>
+                <div class="boatcruise-perk-row">
+                  <i class="fa-solid fa-vest"></i>
+                  <span>Certified life jackets, smooth electric propulsion &amp; professional crew</span>
+                </div>
+              </div>
+
+              <div class="boatcruise-feature-actions">
+                <a href="#pricing-table" class="btn btn-blue btn-sm">
+                  <i class="fa-solid fa-receipt"></i>
+                  <span class="desktop-text">View Cruise Rates</span>
+                  <span class="mobile-text">Cruise Rates</span>
+                </a>
+                <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%20(Ripplebay%20Taman%20Botani)%2C%20I%20would%20like%20to%20inquire%20about%20the%20Boat%20Cruise%20tour!"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span class="desktop-text">Inquire via WhatsApp</span>
+                  <span class="mobile-text">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buggy Shuttle Service Feature Showcase Card -->
+        <div class="buggyshuttle-feature-card" id="buggyshuttle-card">
+          <div class="buggyshuttle-feature-glow-accent"></div>
+          
+          <div class="buggyshuttle-feature-grid">
+            <!-- Left Content & Actions -->
+            <div class="buggyshuttle-feature-content">
+              <div class="buggyshuttle-feature-badge">
+                <i class="fa-solid fa-van-shuttle"></i> PARKWIDE ENTRANCE SHUTTLE
+              </div>
+
+              <h2 class="buggyshuttle-feature-title">Botanical Buggy Shuttle Service</h2>
+
+              <!-- Mobile/Tablet Collage Showcase Below Title -->
+              <div class="buggyshuttle-collage-mobile">
+                <div class="buggyshuttle-collage-grid">
+                  <!-- Large featured main entrance arch photo -->
+                  <div class="buggyshuttle-collage-item buggyshuttle-collage-large">
+                    <img src="image/ripplebayBuggyService3.jpg" alt="Electric shuttle buggy at the grand main entrance of Taman Botani Perdana" loading="lazy">
+                    <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-archway"></i> Main Garden Entrance</span>
+                  </div>
+
+                  <!-- Friendly driver welcoming guests -->
+                  <div class="buggyshuttle-collage-item buggyshuttle-collage-sub">
+                    <img src="image/ripplebayBuggyService1.jpg" alt="Friendly buggy driver welcoming guests at the botanical garden directory" loading="lazy">
+                    <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-user-tie"></i> Dedicated Drivers</span>
+                  </div>
+
+                  <!-- Buggy cruising through shaded palm park pathway -->
+                  <div class="buggyshuttle-collage-item buggyshuttle-collage-sub">
+                    <img src="image/ripplebayBuggyService2.jpg" alt="Electric shuttle buggy cruising along shaded palm pathways in Taman Botani Perdana" loading="lazy">
+                    <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-tree"></i> Shaded Scenic Route</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="buggyshuttle-feature-desc">
+                Effortlessly explore the expansive beauty of Taman Botani Perdana without the tiring walk. Our electric shuttle buggies cover the entire main entrance, perimeter parking gates, and heritage landmarks — providing seamless, shaded transfers directly to the Ripplebay lakeside jetty and back.
+              </p>
+
+              <div class="buggyshuttle-feature-perks">
+                <div class="buggyshuttle-perk-row">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                  <span>Full coverage across main entrance gates, parking lots &amp; garden trails</span>
+                </div>
+                <div class="buggyshuttle-perk-row">
+                  <i class="fa-solid fa-person-walking-luggage"></i>
+                  <span>Direct express drop-off at Ripplebay pier — perfect for families, seniors &amp; tourists</span>
+                </div>
+                <div class="buggyshuttle-perk-row">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span>100% eco-friendly electric ride with friendly drivers at only RM 5.00 / pax</span>
+                </div>
+              </div>
+
+              <div class="buggyshuttle-feature-actions">
+                <a href="#pricing-table" class="btn btn-emerald btn-sm">
+                  <i class="fa-solid fa-receipt"></i>
+                  <span class="desktop-text">View Shuttle Fare</span>
+                  <span class="mobile-text">Shuttle Fare</span>
+                </a>
+                <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%20(Ripplebay%20Taman%20Botani)%2C%20I%20would%20like%20to%20inquire%20about%20the%20Buggy%20Shuttle%20Service!"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span class="desktop-text">Inquire via WhatsApp</span>
+                  <span class="mobile-text">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Collage Showcase (ripplebayBuggyService1 till 3) -->
+            <div class="buggyshuttle-collage-wrap buggyshuttle-collage-desktop">
+              <div class="buggyshuttle-collage-grid">
+                <!-- Large featured main entrance arch photo -->
+                <div class="buggyshuttle-collage-item buggyshuttle-collage-large">
+                  <img src="image/ripplebayBuggyService3.jpg" alt="Electric shuttle buggy at the grand main entrance of Taman Botani Perdana" loading="lazy">
+                  <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-archway"></i> Main Garden Entrance</span>
+                </div>
+
+                <!-- Friendly driver welcoming guests -->
+                <div class="buggyshuttle-collage-item buggyshuttle-collage-sub">
+                  <img src="image/ripplebayBuggyService1.jpg" alt="Friendly buggy driver welcoming guests at the botanical garden directory" loading="lazy">
+                  <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-user-tie"></i> Dedicated Drivers</span>
+                </div>
+
+                <!-- Buggy cruising through shaded palm park pathway -->
+                <div class="buggyshuttle-collage-item buggyshuttle-collage-sub">
+                  <img src="image/ripplebayBuggyService2.jpg" alt="Electric shuttle buggy cruising along shaded palm pathways in Taman Botani Perdana" loading="lazy">
+                  <span class="buggyshuttle-collage-tag"><i class="fa-solid fa-tree"></i> Shaded Scenic Route</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ripplebay Pricing Table Section -->
+        <div class="pricing-content-wrap" id="pricing-table">
+          <div class="pricing-section-header">
+            <div class="pricing-title-wrap">
+              <h2 class="pricing-main-title">Ripplebay Taman Botani — Pricing &amp; Activities</h2>
+              <p style="color:var(--text-muted); margin:0;">Enjoy peaceful sessions on the botanical lake. Safe,
+                certified life vests provided for all ages.</p>
+            </div>
+
+            <!-- Citizen Toggle -->
+            <div class="citizen-toggle-control">
+              <button type="button" class="toggle-option-btn active" data-tier="citizen">
+                <i class="fa-solid fa-flag"></i> Malaysian Citizen (MyKad)
+              </button>
+              <button type="button" class="toggle-option-btn" data-tier="non-citizen">
+                <i class="fa-solid fa-globe"></i> Non-Citizen / Tourist
+              </button>
+            </div>
+          </div>
+
+          <div class="rides-cards-grid">
+            <!-- Cruise Boat -->
+            <div class="ride-item-card">
+              <span class="ride-card-badge">Signature Attraction</span>
+              <div class="ride-image-wrap">
+                <img src="image/cruise.png" alt="Cruise Boat" class="ride-item-img" loading="lazy">
+              </div>
+              <h4 class="ride-name">Cruise Boat</h4>
+              <div class="ride-duration"><i class="fa-regular fa-clock"></i> 30 Minutes per session</div>
+              <div class="ride-price-table">
+                <div class="price-row">
+                  <span class="tier-label">Dewasa / Adult</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 25.00 / pax"
+                    data-non-citizen="RM 35.00 / pax">RM 25.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Warga Emas &amp; OKU</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 15.00 / pax"
+                    data-non-citizen="RM 25.00 / pax">RM 15.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Kanak-kanak (7-12 yrs)</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 15.00 / pax"
+                    data-non-citizen="RM 25.00 / pax">RM 15.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Children (3-6 yrs)</span>
+                  <span class="tier-val free price-dynamic" data-citizen="F.O.C" data-non-citizen="F.O.C">F.O.C</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paddle Boat -->
+            <div class="ride-item-card">
+              <span class="ride-card-badge">Popular Choice</span>
+              <div class="ride-image-wrap">
+                <img src="image/paddleboatSwan.png" alt="Paddle Boat Swan" class="ride-item-img" loading="lazy">
+              </div>
+              <h4 class="ride-name">Paddle Boat</h4>
+              <div class="ride-duration"><i class="fa-regular fa-clock"></i> 30 Minutes per session</div>
+              <div class="ride-price-table">
+                <div class="price-row">
+                  <span class="tier-label">Dewasa / Adult</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 15.00 / pax"
+                    data-non-citizen="RM 25.00 / pax">RM 15.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Warga Emas &amp; OKU</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 10.00 / pax"
+                    data-non-citizen="RM 20.00 / pax">RM 10.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Children (7-12 yrs)</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 10.00 / pax"
+                    data-non-citizen="RM 20.00 / pax">RM 10.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Children (3-6 yrs)</span>
+                  <span class="tier-val free price-dynamic" data-citizen="F.O.C" data-non-citizen="F.O.C">F.O.C</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kayak Single -->
+            <div class="ride-item-card">
+              <span class="ride-card-badge">Kayak Individu</span>
+              <div class="ride-image-wrap">
+                <img src="image/singleKayak.png" alt="Kayak Single" class="ride-item-img img-rotate-kayak"
+                  loading="lazy">
+              </div>
+              <h4 class="ride-name">Kayak Single</h4>
+              <div class="ride-duration"><i class="fa-regular fa-clock"></i> 30 Minutes per session</div>
+              <div class="ride-price-table">
+                <div class="price-row">
+                  <span class="tier-label">Dewasa / Adult</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 20.00 / pax"
+                    data-non-citizen="RM 30.00 / pax">RM 20.00 / pax</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kayak Double -->
+            <div class="ride-item-card">
+              <span class="ride-card-badge">Kayak Untuk Dua Orang</span>
+              <div class="ride-image-wrap">
+                <img src="image/doubleKayak.png" alt="Kayak Double" class="ride-item-img" loading="lazy">
+              </div>
+              <h4 class="ride-name">Kayak Double</h4>
+              <div class="ride-duration"><i class="fa-regular fa-clock"></i> 30 Minutes per session</div>
+              <div class="ride-price-table">
+                <div class="price-row">
+                  <span class="tier-label">Dewasa / Adult</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 15.00 / pax"
+                    data-non-citizen="RM 25.00 / pax">RM 15.00 / pax</span>
+                </div>
+                <div class="price-row">
+                  <span class="tier-label">Children (7-12 yrs)</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 10.00 / pax"
+                    data-non-citizen="RM 20.00 / pax">RM 10.00 / pax</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shuttle Buggy -->
+            <div class="ride-item-card">
+              <span class="ride-card-badge">Transport Service</span>
+              <div class="ride-image-wrap">
+                <img src="image/shuttleBuggy.png" alt="Shuttle Buggy" class="ride-item-img" loading="lazy">
+              </div>
+              <h4 class="ride-name">Shuttle Buggy</h4>
+              <div class="ride-duration"><i class="fa-solid fa-van-shuttle"></i> Ride to RippleBay Only (One Way)</div>
+              <div class="ride-price-table">
+                <div class="price-row">
+                  <span class="tier-label">Standard Fare (All Guests)</span>
+                  <span class="tier-val price-dynamic" data-citizen="RM 5.00 / pax" data-non-citizen="RM 5.00 / pax">RM
+                    5.00 / pax</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         INSTAGRAM REELS & COMMUNITY HIGHLIGHTS SECTION
+         ========================================================== -->
+    <section class="instagram-feed-section ripplebay-ig-theme" id="instagram-feed">
+      <!-- Infinite Marquee Text (Top - Loops to Right) -->
+      <div class="ig-marquee-strip ig-marquee-top">
+        <div class="ig-marquee-track ig-marquee-loop-right">
+          <div class="ig-marquee-group">
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+          </div>
+          <div class="ig-marquee-group" aria-hidden="true">
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram-feed-header">
+        <span class="instagram-badge-pill">
+          <i class="fa-brands fa-instagram"></i> Follow Us On Instagram
+        </span>
+        <h2 class="instagram-feed-title">Catch the Serenity on Instagram Reels</h2>
+        <p class="instagram-feed-desc">
+          Discover peaceful botanical boat cruises, swan pedal adventures, and magical visitor moments at Ripplebay Taman Botani. Tag @ripplebay.botani to be featured on our feed!
+        </p>
+        <a href="https://www.instagram.com/ripplebay.botani/" target="_blank" rel="noopener noreferrer" class="btn-instagram-follow">
+          <i class="fa-brands fa-instagram"></i> Follow @ripplebay.botani
+        </a>
+      </div>
+
+      <div class="instagram-reels-container">
+        <div class="instagram-reels-track">
+          <!-- Reel 1: DeRUFq_teFZ -->
+          <div class="instagram-reel-card">
+            <div class="instagram-reel-iframe-wrap">
+              <iframe src="https://www.instagram.com/reel/DeRUFq_teFZ/embed" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+            <div class="instagram-reel-footer">
+              <a href="https://www.instagram.com/ripplebay.botani/reel/DeRUFq_teFZ/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i> View Reel
+              </a>
+              <span class="reel-brand-tag">@ripplebay.botani</span>
+            </div>
+          </div>
+
+          <!-- Reel 2: DeETLzttoHu -->
+          <div class="instagram-reel-card">
+            <div class="instagram-reel-iframe-wrap">
+              <iframe src="https://www.instagram.com/reel/DeETLzttoHu/embed" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+            <div class="instagram-reel-footer">
+              <a href="https://www.instagram.com/ripplebay.botani/reel/DeETLzttoHu/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i> View Reel
+              </a>
+              <span class="reel-brand-tag">@ripplebay.botani</span>
+            </div>
+          </div>
+
+          <!-- Reel 3: DeB_awWN1gl -->
+          <div class="instagram-reel-card">
+            <div class="instagram-reel-iframe-wrap">
+              <iframe src="https://www.instagram.com/reel/DeB_awWN1gl/embed" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+            <div class="instagram-reel-footer">
+              <a href="https://www.instagram.com/ripplebay.botani/reel/DeB_awWN1gl/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i> View Reel
+              </a>
+              <span class="reel-brand-tag">@ripplebay.botani</span>
+            </div>
+          </div>
+
+          <!-- Reel 4: DdgEL10NtAC -->
+          <div class="instagram-reel-card">
+            <div class="instagram-reel-iframe-wrap">
+              <iframe src="https://www.instagram.com/reel/DdgEL10NtAC/embed" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+            <div class="instagram-reel-footer">
+              <a href="https://www.instagram.com/ripplebay.botani/reel/DdgEL10NtAC/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i> View Reel
+              </a>
+              <span class="reel-brand-tag">@ripplebay.botani</span>
+            </div>
+          </div>
+
+          <!-- Reel 5: DdPsQswvzo5 -->
+          <div class="instagram-reel-card">
+            <div class="instagram-reel-iframe-wrap">
+              <iframe src="https://www.instagram.com/reel/DdPsQswvzo5/embed" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+            <div class="instagram-reel-footer">
+              <a href="https://www.instagram.com/theprincesschoo/reel/DdPsQswvzo5/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i> View Reel
+              </a>
+              <span class="reel-brand-tag">@theprincesschoo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="instagram-reels-hint">
+          <i class="fa-solid fa-arrows-left-right"></i> Scroll or swipe horizontally to explore all reels
+        </div>
+      </div>
+
+      <!-- Infinite Marquee Text (Bottom - Loops to Left) -->
+      <div class="ig-marquee-strip ig-marquee-bottom">
+        <div class="ig-marquee-track ig-marquee-loop-left">
+          <div class="ig-marquee-group">
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+          </div>
+          <div class="ig-marquee-group" aria-hidden="true">
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+            <span><span class="ig-word-ripplebay">RIPPLEBAY</span> TAMAN BOTANI</span><span class="ig-marquee-bullet">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         RIPPLEBAY WAVE & 3D SPIRAL GALLERY ANIMATION
+         ========================================================== -->
+    <section class="ripplebay-gallery-wrapper" id="gallery">
+      <div class="ripplebay-gallery-sticky" id="gallerySticky">
+
+        <!-- Ambient Architectural Grid -->
+        <div class="rb-bg-grid"></div>
+
+        <!-- Section 1 Intro Heading -->
+        <div class="rb-intro-screen" id="rbIntroScreen">
+          <h2 class="rb-intro-title">DISCOVER BOTANI PERDANA</h2>
+          <p class="rb-intro-desc">
+            An urban botanical lake in the heart of Kuala Lumpur. Scroll down to carve your path across the tranquil waters.
+          </p>
+          <div class="rb-scroll-cue">
+            <span>Scroll to Glide Downstream</span>
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+          </div>
+        </div>
+
+        <!-- 30-Degree Kinetic Marquee Runway -->
+        <div class="kinetic-marquee-viewport" id="marqueeViewport">
+          <div class="marquee-strip" id="strip1">
+            <span class="marquee-text">TAMAN BOTANI PERDANA</span>
+            <span class="marquee-text highlight">KUALA LUMPUR BOTANICAL LAKE</span>
+            <span class="marquee-text">RIPPLEBAY AQUASPORTS</span>
+            <span class="marquee-text highlight">SCROLL TO GLIDE DOWNSTREAM</span>
+            <span class="marquee-text">TAMAN BOTANI PERDANA</span>
+          </div>
+          <div class="marquee-strip" id="strip2" style="margin-left: -20%;">
+            <span class="marquee-text highlight">KUALA LUMPUR BOTANICAL LAKE</span>
+            <span class="marquee-text">RIPPLEBAY AQUASPORTS</span>
+            <span class="marquee-text highlight">TAMAN BOTANI PERDANA</span>
+            <span class="marquee-text">SCROLL TO GLIDE DOWNSTREAM</span>
+            <span class="marquee-text highlight">KUALA LUMPUR BOTANICAL LAKE</span>
+          </div>
+        </div>
+
+        <!-- Wave Canvas: Water Wave Simulation & Curved Text Wake -->
+        <canvas id="waveCanvas"></canvas>
+        <div class="black-overlay" id="blackOverlay"></div>
+
+        <!-- Top Persistent Waving Wave in Black Section -->
+        <canvas id="topWaveCanvas"></canvas>
+
+        <!-- 3D Spiral Gallery Viewport & Arena -->
+        <div class="spiral-viewport" id="spiralViewport">
+          <div class="spiral-arena" id="spiralArena"></div>
+        </div>
+
+        <!-- Interactive Stage: Boats & Quote with 3D Tilt -->
+        <div class="interactive-stage" id="interactiveStage">
+          <!-- Top-Down Boat -->
+          <div class="boat-top-box" id="boatTop">
+            <img src="image/boatTop.png" alt="Ripplebay Boat Top View" draggable="false">
+          </div>
+
+          <!-- Perspective 3D Boat -->
+          <div class="boat-3d-box" id="boat3D">
+            <div class="boat-3d-inner" id="boatInner">
+              <img src="image/boat.png" alt="Ripplebay Boat Perspective View" draggable="false">
+            </div>
+          </div>
+
+          <!-- Words on Right Side of Boat -->
+          <div class="boat-quote-card" id="boatQuote">
+            <div class="boat-quote-inner" id="quoteInner">
+              <h3 class="boat-quote-title">Cruising <span class="quote-word-blue">through</span> memories <span class="quote-word-blue">together</span></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lightbox Modal for Previewing Cards -->
+    <div class="lightbox-modal" id="lightboxModal">
+      <div class="lightbox-wrapper">
+        <button class="lightbox-close" id="lightboxClose" title="Close (Esc)">&times;</button>
+        <img id="lightboxImg" src="" alt="Watersports Preview" draggable="false">
+      </div>
+    </div>
+
+    <!-- Watersports Area Section -->
+    <section class="watersports-area-section ripplebay-theme" id="watersports-area">
+      <div class="container">
+        <div class="watersports-area-header text-center">
+          <span class="location-badge-pill badge-ripplebay" style="margin-bottom:0.75rem; display:inline-block;">
+            <i class="fa-solid fa-compass"></i> Lake Overview &amp; Activity Perimeter
+          </span>
+          <h2 class="section-title">Watersports Area</h2>
+          <p class="section-subtitle">
+            Aerial overview of the designated water activities zone across Perdana Botanical Garden lake — from our main boarding dock to scenic swan boat routes.
+          </p>
+        </div>
+
+        <div class="watersports-area-card">
+          <div class="watersports-area-media">
+            <img src="image/watersportsAreaRipplebay.jpg" alt="Ripplebay Taman Botani Watersports Area Map" class="watersports-area-img" loading="lazy">
+            <div class="watersports-area-overlay-badge">
+              <span class="area-badge-chip"><i class="fa-solid fa-water"></i> Official Botanical Lake Zone</span>
+            </div>
+          </div>
+          <div class="watersports-area-footer">
+            <div class="watersports-zone-badges">
+              <span class="zone-pill"><i class="fa-solid fa-anchor"></i> Lakeside Boarding Dock</span>
+              <span class="zone-pill"><i class="fa-solid fa-feather-pointed"></i> Swan Pedal Boat Route</span>
+              <span class="zone-pill"><i class="fa-solid fa-leaf"></i> Tranquil Sanctuary Waters</span>
+              <span class="zone-pill"><i class="fa-solid fa-life-ring"></i> Compulsory Life Jacket Zone</span>
+            </div>
+            <a href="image/watersportsAreaRipplebay.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm watersports-view-full-btn">
+              <i class="fa-solid fa-up-right-and-down-left-from-center"></i> View Full Resolution Map
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Google Maps Embed Section -->
+    <section class="branch-map-section ripplebay-theme" id="location-map">
+      <div class="container">
+        <div class="branch-map-header">
+          <span class="location-badge-pill badge-ripplebay" style="margin-bottom:0.75rem; display:inline-block;">
+            <i class="fa-solid fa-map-location-dot"></i> Location &amp; Directions
+          </span>
+          <h2 class="section-title">Visit Ripplebay Taman Botani</h2>
+          <p class="section-subtitle">
+            Immerse in tranquility at Perdana Botanical Garden. Enjoy peaceful lake breezes, lush botanical greenery,
+            and convenient electric shuttle buggy connections straight to our dock.
+          </p>
+        </div>
+
+        <div class="branch-map-grid">
+          <!-- Information Card -->
+          <div class="branch-map-info-card ripplebay-card">
+            <div>
+              <span class="branch-map-badge" style="color:var(--brand-blue);">
+                <i class="fa-solid fa-location-dot"></i> Branch 02 • Perdana Botanical Garden
+              </span>
+              <h3 class="branch-map-card-title">Ripplebay Taman Botani</h3>
+              <p class="branch-map-card-subtitle">
+                White &amp; Black Aquasports • Member of MFJ Capital Sdn Bhd
+              </p>
+
+              <div class="branch-map-details-list">
+                <!-- Address -->
+                <div class="branch-map-detail-item">
+                  <div class="branch-map-detail-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div class="branch-map-detail-text">
+                    <strong>Address &amp; Lake Pier</strong>
+                    <p>Taman Botani Perdana, Jalan Kebun Bunga, Tasik Perdana, 50480 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+                    <span style="font-size:0.82rem; color:var(--brand-blue); font-weight:600; display:inline-block; margin-top:3px;">
+                      <i class="fa-solid fa-signs-post"></i> Located at Central Boat House Pier, Main Lake Promenade
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Operating Hours -->
+                <div class="branch-map-detail-item">
+                  <div class="branch-map-detail-icon">
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="branch-map-detail-text">
+                    <strong>Operating Hours</strong>
+                    <p><strong>Tuesday – Sunday:</strong> 8:30 AM – 6:30 PM (Last ticket 6:00 PM)</p>
+                    <p style="margin-top:2px;"><strong>Closed Mondays</strong> (Except Public &amp; School Holidays)</p>
+                    <span style="font-size:0.82rem; color:var(--accent-gold); font-weight:600; display:inline-block; margin-top:3px;">
+                      <i class="fa-solid fa-moon"></i> Evening Rides &amp; Weekend Twilight Cruise Sessions
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Parking & Shuttle Buggy -->
+                <div class="branch-map-detail-item">
+                  <div class="branch-map-detail-icon">
+                    <i class="fa-solid fa-van-shuttle"></i>
+                  </div>
+                  <div class="branch-map-detail-text">
+                    <strong>Parking &amp; Shuttle Buggy</strong>
+                    <p>Multi-storey car park located near the Perdana Botanical Garden main entrance (Jalan Kebun Bunga). Dedicated electric shuttle buggy service available directly to the boat pier (RM 5.00/pax).</p>
+                  </div>
+                </div>
+
+                <!-- Contact & WhatsApp -->
+                <div class="branch-map-detail-item">
+                  <div class="branch-map-detail-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </div>
+                  <div class="branch-map-detail-text">
+                    <strong>Direct Contact</strong>
+                    <p>Customer Support / Bookings: <a href="https://wa.me/60136597030" target="_blank" rel="noopener noreferrer" style="color:var(--brand-cyan); font-weight:600;">+60 13-659 7030</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-map-actions">
+              <a href="https://maps.app.goo.gl/4pPJhaXTiZfsrW6d7" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm">
+                <i class="fa-solid fa-diamond-turn-right"></i>
+                <span class="desktop-text">Open Google Maps</span>
+                <span class="mobile-text">Google Maps</span>
+              </a>
+              <a href="https://waze.com/ul?q=Taman%20Botani%20Perdana" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <i class="fa-brands fa-waze"></i>
+                <span class="desktop-text">Open in Waze</span>
+                <span class="mobile-text">Waze</span>
+              </a>
+              <a href="https://wa.me/60136597030?text=Hi%20Ripplebay%20Taman%20Botani%2C%20I%20need%20assistance%20with%20directions!" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span class="desktop-text">WhatsApp Us</span>
+                <span class="mobile-text">WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Map Frame -->
+          <div class="branch-map-frame-card">
+            <div class="branch-map-frame-header">
+              <span><span class="live-dot"></span> Live GPS Location • Taman Botani Perdana</span>
+              <a href="https://maps.app.goo.gl/4pPJhaXTiZfsrW6d7" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-up-right-from-square"></i> Full Screen Map
+              </a>
+            </div>
+            <iframe
+              class="branch-map-iframe"
+              title="Google Map location of Ripplebay Taman Botani Perdana"
+              src="https://maps.google.com/maps?q=3.1421889,101.6847692+(Ripple+Bay+Taman+Botani+Perdana)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              loading="lazy"
+              allowfullscreen=""
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Switch Branch Strip -->
+    <section style="padding: 3.5rem 0 5rem; background: var(--bg-primary);">
+      <div class="container">
+        <div class="branch-switch-strip" style="margin-top: 0;">
+          <div>
+            <span class="location-badge-pill badge-titiwangsa"
+              style="margin-bottom:0.5rem; display:inline-block;">Explore Branch 01</span>
+            <h3 style="font-size:1.35rem; color:var(--brand-navy); margin:0 0 0.35rem 0;">Aquasports Tasik Titiwangsa
+            </h3>
+            <p style="color:var(--text-muted); font-size:0.92rem; margin:0;">Looking for KLCC skyline views, aquatic
+              bumper boats, water cycling, and corporate team building?</p>
+          </div>
+          <a href="aquasports-tasik-titiwangsa.html" class="btn btn-emerald btn-sm">
+            <i class="fa-solid fa-water"></i> View Titiwangsa Rates &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Column -->
+        <div>
+          <div class="footer-logos-duo">
+            <img src="image/wnbAquasportsLogo.png" alt="White &amp; Black Aquasports Logo" class="footer-brand-logo">
+            <span class="footer-logo-divider"></span>
+            <img src="image/mfjCapitalLogo.png" alt="MFJ Capital Sdn Bhd Logo" class="footer-partner-logo">
+          </div>
+          <p class="footer-about-p">
+            White &amp; Black Aquasports is a proud member of MFJ CAPITAL SDN BHD, delivering the finest water sports
+            and recreational experiences in Kuala Lumpur across Tasik Titiwangsa and Ripplebay Taman Botani, with
+            upcoming expansion in 2027.
+          </p>
+          <div class="footer-socials">
+            <button type="button" class="social-link" id="footerInstagramBtn" title="Choose Instagram Branch"
+              aria-haspopup="dialog" aria-expanded="false">
+              <i class="fa-brands fa-instagram"></i>
+            </button>
+            <a href="https://linktr.ee/WhiteNBlackBranches" target="_blank" rel="noopener noreferrer"
+              class="social-link" title="Linktree"><i class="fa-solid fa-link"></i></a>
+            <button type="button" class="social-link" id="footerWhatsappBtn" title="Choose WhatsApp Branch"
+              aria-haspopup="dialog" aria-expanded="false">
+              <i class="fa-brands fa-whatsapp"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#locations">Our Branch</a></li>
+            <li><a href="aquasports-tasik-titiwangsa.html#teambuilding">Team Building</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#safety">Safety Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Current Locations -->
+        <div class="footer-col">
+          <h5>Current Locations</h5>
+          <ul class="footer-links-list">
+            <li><a href="aquasports-tasik-titiwangsa.html">Aquasports Tasik Titiwangsa</a></li>
+            <li><a href="ripplebay-taman-botani.html" style="color:var(--brand-blue); font-weight:700;">Ripplebay Taman
+                Botani</a></li>
+            <li><a href="index.html#announcementBar">Operating Hours</a></li>
+            <li><a href="index.html#contact" id="footerDirectWhatsappLink">Direct WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- 2027 Expansion -->
+        <div class="footer-col">
+          <h5>Coming Soon (2027)</h5>
+          <ul class="footer-links-list">
+            <li><a href="index.html#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i>
+                Putrajaya</a></li>
+            <li><a href="index.html#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i>
+                Tasik Ampang Hilir</a></li>
+            <li><a href="index.html#expansion"><i class="fa-solid fa-map-pin" style="color:var(--brand-cyan);"></i>
+                Tasik Impian Nilai</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; <span id="currentYear">2026</span> White &amp; Black Aquasports - Member of MFJ CAPITAL SDN BHD. All
+          Rights Reserved. Designed by <a href="https://venturerushtech.com/" target="_blank" rel="noopener noreferrer"
+            class="venturerush-link">VentureRush Tech</a>
+        </div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="index.html#safety">Safety Policy</a>
+          <a href="#location-map">Location Maps</a>
+          <a href="index.html#expansion">2027 Expansion</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Connect Button -->
+  <button type="button" class="floating-whatsapp-btn" id="floatingWhatsappBtn"
+    title="Contact White & Black Aquasports on WhatsApp" aria-haspopup="dialog" aria-expanded="false">
+    <i class="fa-brands fa-whatsapp fa-xl"></i>
+    <span>WhatsApp Us</span>
+  </button>
+
+  <!-- Instagram Branch Chooser Modal -->
+  <div class="branch-modal-backdrop" id="instagramBranchModal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="instagramModalTitle">
+    <div class="branch-modal-card">
+      <button class="branch-modal-close" id="closeInstagramModalBtn"
+        aria-label="Close Instagram Chooser">&times;</button>
+      <div class="branch-modal-header">
+        <div class="branch-modal-icon instagram-icon-bg">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <h3 class="branch-modal-title" id="instagramModalTitle">Choose Instagram Branch</h3>
+        <p class="branch-modal-subtitle">Follow our official Instagram accounts for photos, stories, and event updates:
+        </p>
+      </div>
+
+      <div class="branch-modal-options">
+        <a href="https://www.instagram.com/white_blackaquasports" target="_blank" rel="noopener noreferrer"
+          class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-titiwangsa">Branch 01 • Flagship</div>
+            <h4 class="branch-option-name">Aquasports Tasik Titiwangsa</h4>
+            <span class="branch-option-handle"><i class="fa-brands fa-instagram"></i> @white_blackaquasports</span>
+          </div>
+          <div class="branch-option-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/ripplebay.botani" target="_blank" rel="noopener noreferrer"
+          class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-ripplebay">Branch 02 • Botanical Sanctuary</div>
+            <h4 class="branch-option-name">Ripplebay Taman Botani</h4>
+            <span class="branch-option-handle"><i class="fa-brands fa-instagram"></i> @ripplebay.botani</span>
+          </div>
+          <div class="branch-option-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Branch Chooser Modal -->
+  <div class="branch-modal-backdrop" id="whatsappBranchModal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="whatsappModalTitle">
+    <div class="branch-modal-card">
+      <button class="branch-modal-close" id="closeWhatsappModalBtn" aria-label="Close WhatsApp Chooser">&times;</button>
+      <div class="branch-modal-header">
+        <div class="branch-modal-icon whatsapp-icon-bg">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3 class="branch-modal-title" id="whatsappModalTitle">Chat on WhatsApp</h3>
+        <p class="branch-modal-subtitle">Select your preferred waterfront location to chat directly with our team:</p>
+      </div>
+
+      <div class="branch-modal-options">
+        <a href="https://wa.me/60136517030?text=Hi%20White%20%26%20Black%20Aquasports%20(Tasik%20Titiwangsa)%2C%20I%20would%20like%20to%20inquire%20about%20rides%20and%20activities!"
+          target="_blank" rel="noopener noreferrer" class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/aquasportsTitiwangsaLogo.png" alt="Aquasports Tasik Titiwangsa" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-titiwangsa">Branch 01 • Flagship</div>
+            <h4 class="branch-option-name">Aquasports Tasik Titiwangsa</h4>
+            <span class="branch-option-handle whatsapp-handle"><i class="fa-brands fa-whatsapp"></i> +60 13-651
+              7030</span>
+          </div>
+          <div class="branch-option-arrow whatsapp-arrow">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+        </a>
+
+        <a href="https://wa.me/60136597030?text=Hi%20White%20%26%20Black%20Aquasports%20(Ripplebay%20Taman%20Botani)%2C%20I%20would%20like%20to%20inquire%20about%20rides%20and%20activities!"
+          target="_blank" rel="noopener noreferrer" class="branch-option-card">
+          <div class="branch-option-logo-wrap">
+            <img src="image/ripplebayLogo.png" alt="Ripplebay Taman Botani" class="branch-option-logo">
+          </div>
+          <div class="branch-option-info">
+            <div class="branch-option-badge badge-ripplebay">Branch 02 • Botanical Sanctuary</div>
+            <h4 class="branch-option-name">Ripplebay Taman Botani</h4>
+            <span class="branch-option-handle whatsapp-handle"><i class="fa-brands fa-whatsapp"></i> +60 13-659
+              7030</span>
+          </div>
+          <div class="branch-option-arrow whatsapp-arrow">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script src="script.js?v=27"></script>
+</body>
+
+</html>
