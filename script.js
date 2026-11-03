@@ -413,70 +413,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
     const myTime = new Date(utc + (3600000 * 8));
 
-    const day = myTime.getDay(); // 0: Sunday, 1: Monday, ... 6: Saturday
-    const hours = myTime.getHours();
-    const minutes = myTime.getMinutes();
-    const currentTimeDec = hours + (minutes / 60);
+    // Operating hours for both branches:
+    // Monday = Closed
+    // Tuesday - Thursday = 10:00 AM - 8:00 PM (Break: 1:00 PM - 3:00 PM)
+    // Friday = 10:00 AM - 10:00 PM (Break: 1:00 PM - 3:00 PM)
+    // Saturday, Sunday & Public Holidays = 8:00 AM - 10:00 PM (No break)
+    function getBranchOperatingStatus(time) {
+      const day = time.getDay(); // 0: Sunday, 1: Monday, ... 6: Saturday
+      const hours = time.getHours();
+      const minutes = time.getMinutes();
+      const currentTimeDec = hours + (minutes / 60);
 
-    // Titiwangsa Status:
-    // Mon: Closed
-    // Tue-Thu: 10:00 to 19.25 (Break: 13:00 - 15:00)
-    // Fri: 10:00 to 21.25 (Break: 13:00 - 15:00)
-    // Sat-Sun: 08:00 to 21.25 (No break)
-    let titiwangsaStatus = { open: false, text: 'Closed' };
-    if (day === 1) {
-      titiwangsaStatus = { open: false, text: 'Closed (Every Monday)' };
-    } else if (day >= 2 && day <= 4) {
-      if (currentTimeDec >= 13 && currentTimeDec < 15) {
-        titiwangsaStatus = { open: false, text: 'Break (Reopens at 3:00 PM)' };
-      } else if (currentTimeDec >= 10 && currentTimeDec < 19.25) {
-        titiwangsaStatus = { open: true, text: 'Open Today until 7:15 PM' };
-      } else {
-        titiwangsaStatus = { open: false, text: 'Closed (Opens 10:00 AM)' };
+      // Monday = Closed
+      if (day === 1) {
+        return { open: false, text: 'Closed (Every Monday)' };
       }
-    } else if (day === 5) {
-      if (currentTimeDec >= 13 && currentTimeDec < 15) {
-        titiwangsaStatus = { open: false, text: 'Break (Reopens at 3:00 PM)' };
-      } else if (currentTimeDec >= 10 && currentTimeDec < 21.25) {
-        titiwangsaStatus = { open: true, text: 'Open Today until 9:15 PM' };
-      } else {
-        titiwangsaStatus = { open: false, text: 'Closed (Opens 10:00 AM)' };
+
+      // Tuesday - Thursday: 10:00 AM - 8:00 PM (Break: 1:00 PM - 3:00 PM)
+      if (day >= 2 && day <= 4) {
+        if (currentTimeDec < 10) {
+          return { open: false, text: 'Closed (Opens 10:00 AM)' };
+        } else if (currentTimeDec >= 13 && currentTimeDec < 15) {
+          return { open: false, text: 'Break Time (Reopens 3:00 PM)' };
+        } else if (currentTimeDec >= 10 && currentTimeDec < 20) {
+          if (currentTimeDec < 13) {
+            return { open: true, text: 'Open Today until 8:00 PM (Break 1-3 PM)' };
+          } else {
+            return { open: true, text: 'Open Today until 8:00 PM' };
+          }
+        } else {
+          return { open: false, text: 'Closed (Opens 10:00 AM)' };
+        }
       }
-    } else { // Sat & Sun
-      if (currentTimeDec >= 8 && currentTimeDec < 21.25) {
-        titiwangsaStatus = { open: true, text: 'Open Today until 9:15 PM' };
-      } else {
-        titiwangsaStatus = { open: false, text: 'Closed (Opens 8:00 AM)' };
+
+      // Friday: 10:00 AM - 10:00 PM (Break: 1:00 PM - 3:00 PM)
+      if (day === 5) {
+        if (currentTimeDec < 10) {
+          return { open: false, text: 'Closed (Opens 10:00 AM)' };
+        } else if (currentTimeDec >= 13 && currentTimeDec < 15) {
+          return { open: false, text: 'Break Time (Reopens 3:00 PM)' };
+        } else if (currentTimeDec >= 10 && currentTimeDec < 22) {
+          if (currentTimeDec < 13) {
+            return { open: true, text: 'Open Today until 10:00 PM (Break 1-3 PM)' };
+          } else {
+            return { open: true, text: 'Open Today until 10:00 PM' };
+          }
+        } else {
+          return { open: false, text: 'Closed (Opens 8:00 AM)' };
+        }
       }
+
+      // Saturday & Sunday: 8:00 AM - 10:00 PM (No break time)
+      if (day === 0 || day === 6) {
+        if (currentTimeDec < 8) {
+          return { open: false, text: 'Closed (Opens 8:00 AM)' };
+        } else if (currentTimeDec >= 8 && currentTimeDec < 22) {
+          return { open: true, text: 'Open Today until 10:00 PM' };
+        } else {
+          return { open: false, text: day === 6 ? 'Closed (Opens 8:00 AM)' : 'Closed (Opens Tue 10:00 AM)' };
+        }
+      }
+
+      return { open: false, text: 'Closed' };
     }
 
-    // Ripplebay Status:
-    // Mon: Closed
-    // Weekday (Tue-Thu): 10:00 to 20:00
-    // Fri: 10:00 to 22:00
-    // Weekend (Sat-Sun): 08:00 to 22:00
-    let ripplebayStatus = { open: false, text: 'Closed' };
-    if (day === 1) {
-      ripplebayStatus = { open: false, text: 'Closed (Every Monday)' };
-    } else if (day >= 2 && day <= 4) {
-      if (currentTimeDec >= 10 && currentTimeDec < 20) {
-        ripplebayStatus = { open: true, text: 'Open Today until 8:00 PM' };
-      } else {
-        ripplebayStatus = { open: false, text: 'Closed (Opens 10:00 AM)' };
-      }
-    } else if (day === 5) {
-      if (currentTimeDec >= 10 && currentTimeDec < 22) {
-        ripplebayStatus = { open: true, text: 'Open Today until 10:00 PM' };
-      } else {
-        ripplebayStatus = { open: false, text: 'Closed (Opens 10:00 AM)' };
-      }
-    } else { // Sat & Sun
-      if (currentTimeDec >= 8 && currentTimeDec < 22) {
-        ripplebayStatus = { open: true, text: 'Open Today until 10:00 PM' };
-      } else {
-        ripplebayStatus = { open: false, text: 'Closed (Opens 8:00 AM)' };
-      }
-    }
+    const titiwangsaStatus = getBranchOperatingStatus(myTime);
+    const ripplebayStatus = getBranchOperatingStatus(myTime);
 
     // Update UI elements
     const titiStatusEl = document.getElementById('titiwangsaStatusBadge');
@@ -1410,22 +1412,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       spiralArena.style.transform = `rotateX(${rotX}deg)`;
 
-      const minRadius = isMobile ? Math.min(winW, winH) * 0.18 : Math.min(winW, winH) * 0.20;
-      const maxRadius = isMobile ? Math.max(winW, winH) * 0.48 : Math.max(winW, winH) * 0.54;
+      const minRadius = isMobile ? Math.min(winW, winH) * 0.22 : Math.min(winW, winH) * 0.25;
+      const maxRadius = isMobile ? Math.max(winW, winH) * 0.56 : Math.max(winW, winH) * 0.64;
       const totalCards = cardElements.length;
 
       cardElements.forEach((card, idx) => {
         const t = idx / (totalCards - 1);
-        const r = lerpVal(minRadius, maxRadius, Math.pow(t, 1.05));
-        const angle = t * (Math.PI * 3.1) + spiralSpinOffset;
+        const r = lerpVal(minRadius, maxRadius, t);
+        const angle = t * (Math.PI * 3.9) + spiralSpinOffset;
 
         const x = Math.cos(angle) * r;
         const y = Math.sin(angle) * r;
-        const z = lerpVal(-120, 80, t);
+        const z = lerpVal(-150, 95, t);
 
-        const scale = isMobile ? lerpVal(0.42, 0.95, t) : lerpVal(0.38, 1.10, t);
-        const rotationDeg = (angle * 180 / Math.PI) + 90 + (t * 12);
-        const cardAlpha = lerpVal(0.4, 1.0, Math.pow(t, 0.6));
+        const scale = isMobile ? lerpVal(0.68, 1.02, t) : lerpVal(0.72, 1.15, t);
+        const rotationDeg = (angle * 180 / Math.PI) + 90 + (t * 8);
+        const cardAlpha = lerpVal(0.55, 1.0, Math.pow(t, 0.6));
 
         card.style.opacity = `${cardAlpha}`;
         card.style.transform = `translate3d(${x}px, ${y}px, ${z}px) translate(-50%, -50%) rotate(${rotationDeg}deg) scale(${scale})`;
@@ -2013,7 +2015,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!card || !card.userData || !card.userData.photoUrl || !ttwLightboxModal) return;
       isLightboxOpen = true;
       ttwLightboxImg.src = card.userData.photoUrl;
-      ttwLightboxTitle.innerText = card.userData.photoTitle || 'Aquasports Gallery';
+      if (ttwLightboxTitle) {
+        ttwLightboxTitle.innerText = '';
+      }
       ttwLightboxModal.classList.add('active');
 
       if (hoveredCard) {
